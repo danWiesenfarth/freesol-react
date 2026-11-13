@@ -2,9 +2,10 @@
 
 import Hero from '@/components/Layout/landing-page/Hero';
 import PhotoGrid from '@/components/Photography/PhotoGrid';
-import { PhotoProps } from '@/components/Photography/photo.interface';
+import { PhotoProps } from '@/data/photo.interface';
 import { useEffect, useState } from 'react';
 import { latestCollection } from '@/data/photos.data';
+import ProjectsOverview from '@/components/Layout/project-preview/ProjectsOverview';
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,6 +45,15 @@ export default function Home() {
         </div>
         <PhotoGrid photos={latestCollection} />
         <div className='h-px w-full bg-zinc-200 mt-8'></div>
+      </section>
+      <section className='w-full px-4 lg:px-16 my-6 bg-zinc-800 h-screen py-6 text-zinc-200'>
+        <h2 className='text-3xl  font-semibold'>Enter the Exhibtion</h2>
+      </section>
+      <section className='w-full px-4 lg:px-16 my-6'>
+        <h2 className='text-3xl mb-4 font-semibold text-zinc-900'>
+          Discover more of our work
+        </h2>
+        <ProjectsOverview />
       </section>
     </main>
   );

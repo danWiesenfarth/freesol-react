@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Photo from './Photo';
 import Lightbox from './Lightbox';
-import type { PhotoProps } from './photo.interface';
+import type { PhotoProps } from '../../data/photo.interface';
 
 interface PhotoGridProps {
   photos: PhotoProps[];

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { PhotoProps } from './photo.interface';
+import { PhotoProps } from '../../data/photo.interface';
 
 export default function Photo({ src, alt, title, location }: PhotoProps) {
   return (

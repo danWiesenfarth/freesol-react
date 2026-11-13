@@ -1,5 +1,4 @@
-import type { PhotoProps } from '@/components/Photography/photo.interface';
-
+import { PhotoProps, PhotoProjectPreview } from './photo.interface';
 export const latestCollection: PhotoProps[] = [
   {
     src: '/images/antarctica/dw_epic_penguin_6.jpg',
@@ -144,5 +143,36 @@ export const latestCollection: PhotoProps[] = [
     location: 'Disko Bay, Greenland',
     spanCol: 6,
     spanRow: 4,
+  },
+];
+
+export const projectOverview: PhotoProjectPreview[] = [
+  {
+    src: '/projects/frozen-continent',
+    alt: 'test-alt',
+    title: 'Frozen',
+    meta: 'Greenland, Antarctica',
+    thumbnail: '/images/arctic/seawatch7.jpg',
+  },
+  {
+    src: '/projects/savannah-wildlife',
+    alt: 'test-alt',
+    title: 'People',
+    meta: 'South Africa, Africa',
+    thumbnail: '/images/africa/cheetah.jpg',
+  },
+  {
+    src: '/projects/savannah-wildlife',
+    alt: 'test-alt',
+    title: 'People',
+    meta: 'South Africa, Africa',
+    thumbnail: '/images/africa/Anna_Door_Kolmanskop.jpg',
+  },
+  {
+    src: '/projects/argentobst2',
+    alt: 'test-alt',
+    title: 'People',
+    meta: 'South Africa, Africa',
+    thumbnail: '/images/africa/argenttopdown.jpg',
   },
 ];

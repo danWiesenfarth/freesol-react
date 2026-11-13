@@ -6,3 +6,11 @@ export interface PhotoProps {
   spanCol: number;
   spanRow: number;
 }
+
+export interface PhotoProjectPreview {
+  src: string;
+  thumbnail: string;
+  alt: string;
+  title: string;
+  meta?: string;
+}
