@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { neueRegrade, departureMono, satoshi } from './fonts';
+import { neueRegrade, satoshi } from './fonts';
 
 import Header from '../components/Layout/Header';
+import Footer from '@/components/Layout/Footer';
 import { ScrollProvider } from './context/ScrollContext';
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         <ScrollProvider>
           <Header />
           {children}
+          <Footer />
         </ScrollProvider>
       </body>
     </html>

@@ -3,9 +3,12 @@
 import Link from 'next/link';
 import { useScroll } from '@/app/context/ScrollContext';
 import Logo from '../UI/Logo';
+import { useState, useEffect } from 'react';
+import MenuToggle from '../UI/MenuToggle';
 
 export default function Header() {
   const { scrolled, headerVisible } = useScroll();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const visibilityClasses = headerVisible
     ? 'translate-y-0 opacity-100'
@@ -18,6 +21,20 @@ export default function Header() {
     after:transition-transform after:duration-300
     hover:after:scale-x-100
   `;
+
+  function handleMenuToggle() {
+    setMenuOpen((prev) => !prev);
+  }
+
+  useEffect(() => {
+    const previousOverflow = (document.body.style.overflow = menuOpen
+      ? 'hidden'
+      : '');
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [menuOpen]);
 
   return (
     <header>
@@ -71,11 +88,68 @@ export default function Header() {
               ? 'w-[92vw] px-6 bg-zinc-200/70 backdrop-blur-md'
               : 'w-[92vw] px-2 text-zinc-200'
           }
+          ${menuOpen ? 'text-zinc-900' : ''}
         `}
       >
         <Logo className='w-10 h-10' />
-        <button aria-label='Open menu'>=</button>
+        <button onClick={handleMenuToggle} aria-label='Open menu'>
+          <MenuToggle isOpen={menuOpen} />
+        </button>
       </div>
+
+      {/* MOBILE MENU SHOWS WHEN MENUOPEN TRUTHY */}
+
+      {menuOpen && (
+        <div className='md:hidden fixed inset-0 z-[8999] bg-zinc-200 text-zinc-900 '>
+          <nav className='flex flex-col justify-end h-full w-full'>
+            <Link
+              className=' px-8 pt-24 flex justify-between items-center'
+              href='/projects'
+            >
+              <span className='text-zinc-400 text-xl font-sans-alt'>01</span>
+              <span className='text-4xl font-medium'>Projects</span>
+            </Link>
+            <div className='h-px mt-4 bg-zinc-300 w-full'> </div>
+            <Link
+              className=' px-8 pt-8 flex justify-between items-center'
+              href='/projects'
+            >
+              <span className='text-zinc-400 text-xl font-sans-alt'>02</span>
+              <span className='text-4xl font-medium'>Immersive Gallery</span>
+            </Link>
+            <div className='h-px mt-4 bg-zinc-300 w-full'> </div>
+            <Link
+              className=' px-8 pt-8 flex justify-between items-center'
+              href='/projects'
+            >
+              <span className='text-zinc-400 text-xl font-sans-alt'>03</span>
+              <span className='text-4xl font-medium'>Shop (SOON)</span>
+            </Link>
+            <div className='h-px mt-4 bg-zinc-300 w-full'> </div>
+            <Link
+              className=' px-8 pt-8 flex justify-between items-center'
+              href='/projects'
+            >
+              <span className='text-zinc-400 text-xl font-sans-alt'>04</span>
+              <span className='text-4xl font-medium'>About Us</span>
+            </Link>
+            <div className='h-px mt-4 bg-zinc-300 w-full'> </div>
+            <Link
+              className=' px-8 pt-8 flex justify-between items-center'
+              href='/projects'
+            >
+              <span className='text-zinc-400 text-xl font-sans-alt'>05</span>
+              <span className='text-4xl font-medium'>Contact</span>
+            </Link>
+            <div className='h-px mt-4 bg-zinc-300 w-full'> </div>
+
+            <div className='flex flex-col gap-2 w-full justify-center items-center mb-24 mt-12 text-base font-sans-alt'>
+              <Link href='/impressum'>Impressum</Link>
+              <Link href='/impressum'>Privacy</Link>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
