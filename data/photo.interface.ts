@@ -19,4 +19,5 @@ export interface ProjectsHeaderPreview {
   title: string;
   thumbnail: string;
   description?: string;
+  link: string;
 }

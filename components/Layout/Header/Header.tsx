@@ -171,8 +171,6 @@ export default function Header() {
               </div>
             </div>
 
-            <div className='h-px bg-zinc-300 w-full' />
-
             {/* OTHER NAVIGATION LINKS */}
             <Link
               className='px-8 py-8 flex justify-between items-center'
@@ -183,8 +181,6 @@ export default function Header() {
               <span className='text-4xl font-medium'>Immersive Gallery</span>
             </Link>
 
-            <div className='h-px mt-4 bg-zinc-300 w-full' />
-
             <Link
               className='px-8 py-8 flex justify-between items-center'
               href='/projects'
@@ -193,8 +189,6 @@ export default function Header() {
               <span className='text-zinc-400 text-xl font-sans-alt'>03</span>
               <span className='text-4xl font-medium'>Shop (SOON)</span>
             </Link>
-
-            <div className='h-px mt-4 bg-zinc-300 w-full' />
 
             <Link
               className='px-8 py-8 flex justify-between items-center'
@@ -205,8 +199,6 @@ export default function Header() {
               <span className='text-4xl font-medium'>About Us</span>
             </Link>
 
-            <div className='h-px mt-4 bg-zinc-300 w-full' />
-
             <Link
               className='px-8 py-8 flex justify-between items-center'
               href='/contact'
@@ -215,8 +207,6 @@ export default function Header() {
               <span className='text-zinc-400 text-xl font-sans-alt'>05</span>
               <span className='text-4xl font-medium'>Contact</span>
             </Link>
-
-            <div className='h-px mt-4 bg-zinc-300 w-full' />
 
             <div className='flex flex-col gap-2 w-full justify-center items-center mb-24 mt-12 text-base font-sans-alt'>
               <Link href='/impressum'>Impressum</Link>
