@@ -117,7 +117,7 @@ export default function ProjectsOverview() {
         </div>
       </div>
 
-      <div className='mt-8 flex items-center justify-between'>
+      <div className='my-8 flex items-center justify-between px-24'>
         <button
           onClick={() => navigate(-1)}
           aria-label='Previous project'

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { neueRegrade, satoshi } from './fonts';
 
-import Header from '../components/Layout/Header';
+import Header from '../components/Layout/Header/Header';
 import Footer from '@/components/Layout/Footer';
 import { ScrollProvider } from './context/ScrollContext';
 

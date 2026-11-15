@@ -1,4 +1,8 @@
-import { PhotoProps, PhotoProjectPreview } from './photo.interface';
+import {
+  PhotoProps,
+  PhotoProjectPreview,
+  ProjectsHeaderPreview,
+} from './photo.interface';
 export const latestCollection: PhotoProps[] = [
   {
     src: '/images/antarctica/dw_epic_penguin_6.jpg',
@@ -174,5 +178,26 @@ export const projectOverview: PhotoProjectPreview[] = [
     title: 'People',
     meta: 'South Africa, Africa',
     thumbnail: '/images/africa/argenttopdown.jpg',
+  },
+];
+
+export const projectsHeaderPreview: ProjectsHeaderPreview[] = [
+  {
+    title: 'Frozen Landscapes',
+    thumbnail: '/images/antarctica/dw_snow_1.jpg',
+    description: 'Lorem Ipsum',
+    link: '/projects/frozen-landscapes',
+  },
+  {
+    title: 'African Adventures',
+    thumbnail: '/images/africa/male_lion_1.jpg',
+    description: 'Lorem Ipsum',
+    link: '/projects/african-adventures',
+  },
+  {
+    title: 'Eye in the Sky',
+    thumbnail: '/images/africa/male_lion_1.jpg',
+    description: 'Lorem Ipsum',
+    link: 'projects/eye-in-the-sky',
   },
 ];

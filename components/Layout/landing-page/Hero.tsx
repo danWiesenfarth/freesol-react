@@ -9,7 +9,7 @@ export default function Hero() {
       className={`
         mx-auto  h-[93vh] overflow-hidden relative
         transition-all duration-700 ease-in-out px-6 py-8
-        ${scrolled ? 'w-[98vw] rounded-2xl mt-10' : 'w-screen'}
+        ${scrolled ? 'w-[95vw] rounded-2xl mt-10' : 'w-screen'}
       `}
     >
       <video

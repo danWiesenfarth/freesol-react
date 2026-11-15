@@ -14,3 +14,9 @@ export interface PhotoProjectPreview {
   title: string;
   meta?: string;
 }
+
+export interface ProjectsHeaderPreview {
+  title: string;
+  thumbnail: string;
+  description?: string;
+}

@@ -2,27 +2,14 @@
 
 import Hero from '@/components/Layout/landing-page/Hero';
 import PhotoGrid from '@/components/Photography/PhotoGrid';
-import { PhotoProps } from '@/data/photo.interface';
-import { useEffect, useState } from 'react';
+
 import { latestCollection } from '@/data/photos.data';
 import ProjectsOverview from '@/components/Layout/project-preview/ProjectsOverview';
 
+import Image from 'next/image';
+import Link from 'next/link';
+
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 300);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  });
-
   return (
     <main className='flex flex-col flex-1 items-center justify-start bg-zinc-50 font-sans dark:bg-zinc-50'>
       <Hero />
@@ -46,8 +33,25 @@ export default function Home() {
         <PhotoGrid photos={latestCollection} />
         <div className='h-px w-full bg-zinc-200 mt-8'></div>
       </section>
-      <section className='w-full px-4 lg:px-16 my-6 bg-zinc-800 h-screen py-6 text-zinc-200'>
-        <h2 className='text-3xl  font-semibold'>Enter the Exhibtion</h2>
+      <section className='relative w-full my-6 h-[90vh] overflow-hidden'>
+        <Image
+          fill
+          className='object-cover'
+          src='/images/renders/Savannah_2.png'
+          alt='Lion'
+        />
+
+        {/* Gradient overlay */}
+        <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent' />
+
+        {/* Heading */}
+        <div className='absolute inset-0 flex items-end justify-center pb-16'>
+          <Link href='gallery'>
+            <button className='bg-zinc-200 rounded-xl py-2 px-8 text-xl font-semibold text-zinc-900  text-center cursor-pointer'>
+              Enter The Exhibition
+            </button>
+          </Link>
+        </div>
       </section>
       <section className='w-full px-4 lg:px-16 my-6'>
         <h2 className='text-3xl mb-4 font-semibold text-zinc-900'>

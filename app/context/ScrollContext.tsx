@@ -15,12 +15,12 @@ interface ScrollContextType {
 }
 
 const ScrollContext = createContext<ScrollContextType>({
-  scrolled: false,
+  scrolled: true,
   headerVisible: true,
 });
 
 export function ScrollProvider({ children }: { children: ReactNode }) {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(true);
   const [headerVisible, setHeaderVisible] = useState(true);
 
   const lastScrollY = useRef(0);
@@ -32,19 +32,20 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
 
       setScrolled(currentScrollY > 10);
 
-      // Always show the header near the top
       if (currentScrollY < 80) {
         setHeaderVisible(true);
       } else if (difference > 3) {
-        // Scrolling down
         setHeaderVisible(false);
       } else if (difference < -3) {
-        // Scrolling up
         setHeaderVisible(true);
       }
 
       lastScrollY.current = currentScrollY;
     };
+
+    // Synchronize immediately on mount
+    lastScrollY.current = window.scrollY;
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 

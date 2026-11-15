@@ -2,13 +2,16 @@
 
 import Link from 'next/link';
 import { useScroll } from '@/app/context/ScrollContext';
-import Logo from '../UI/Logo';
+import Logo from '../../UI/Logo';
 import { useState, useEffect } from 'react';
-import MenuToggle from '../UI/MenuToggle';
+import MenuToggle from '../../UI/MenuToggle';
+import Image from 'next/image';
+import ProjectMenu from './ProjectMenu';
 
 export default function Header() {
   const { scrolled, headerVisible } = useScroll();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [projectsExpanded, setProjectsExpanded] = useState(false);
 
   const visibilityClasses = headerVisible
     ? 'translate-y-0 opacity-100'
@@ -24,6 +27,10 @@ export default function Header() {
 
   function handleMenuToggle() {
     setMenuOpen((prev) => !prev);
+  }
+  function handleDropdown() {
+    setProjectsExpanded((prev) => !prev);
+    console.log('triggered');
   }
 
   useEffect(() => {
@@ -59,8 +66,21 @@ export default function Header() {
 
         <nav>
           <ol className='flex gap-6 text-xl font-medium lg:mr-48'>
-            <li className={navLinkClasses}>
-              <Link href='/photography'>PROJECTS</Link>
+            <li className='relative group'>
+              <Link href='/photography' className={navLinkClasses}>
+                PROJECTS
+              </Link>
+
+              <div
+                className={`
+                  invisible opacity-0 pointer-events-none
+                  group-hover:visible group-hover:opacity-100
+                  group-hover:pointer-events-auto
+                  transition-all duration-300 ease-in-out
+                `}
+              >
+                <ProjectMenu />
+              </div>
             </li>
             <li className={navLinkClasses}>
               <Link href='/projects'>EXHIBITION</Link>
@@ -101,51 +121,106 @@ export default function Header() {
 
       {menuOpen && (
         <div className='md:hidden fixed inset-0 z-[8999] bg-zinc-200 text-zinc-900 '>
-          <nav className='flex flex-col justify-end h-full w-full'>
+          <nav className='flex flex-col justify-start h-full w-full'>
+            {/* PROJECTS DROPDOWN */}
+            <div>
+              <button
+                onClick={handleDropdown}
+                aria-expanded={projectsExpanded}
+                className='w-full p-8  mt-32 flex justify-between items-center'
+              >
+                <span className='text-zinc-400 text-xl font-sans-alt'>01</span>
+
+                <div className='flex justify-center items-center gap-2'>
+                  <span>{projectsExpanded ? '⌃' : '⌄'}</span>
+                  <span className='text-4xl font-medium'>Projects</span>
+                </div>
+              </button>
+
+              {/* SUBPAGES */}
+              <div
+                className={`
+                  grid transition-all duration-300 ease-in-out
+                  ${projectsExpanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}
+                `}
+              >
+                <div className='overflow-hidden'>
+                  <div className='flex flex-col gap-3 px-8 py-4 items-end text-2xl font-medium'>
+                    <Link
+                      href='/photography'
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Photography
+                    </Link>
+
+                    <Link
+                      href='/projects/3d'
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      3D & Experiments
+                    </Link>
+
+                    <Link
+                      href='/projects/other'
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Other Projects
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className='h-px bg-zinc-300 w-full' />
+
+            {/* OTHER NAVIGATION LINKS */}
             <Link
-              className=' px-8 pt-24 flex justify-between items-center'
-              href='/projects'
-            >
-              <span className='text-zinc-400 text-xl font-sans-alt'>01</span>
-              <span className='text-4xl font-medium'>Projects</span>
-            </Link>
-            <div className='h-px mt-4 bg-zinc-300 w-full'> </div>
-            <Link
-              className=' px-8 pt-8 flex justify-between items-center'
-              href='/projects'
+              className='px-8 py-8 flex justify-between items-center'
+              href='/exhibition'
+              onClick={() => setMenuOpen(false)}
             >
               <span className='text-zinc-400 text-xl font-sans-alt'>02</span>
               <span className='text-4xl font-medium'>Immersive Gallery</span>
             </Link>
-            <div className='h-px mt-4 bg-zinc-300 w-full'> </div>
+
+            <div className='h-px mt-4 bg-zinc-300 w-full' />
+
             <Link
-              className=' px-8 pt-8 flex justify-between items-center'
+              className='px-8 py-8 flex justify-between items-center'
               href='/projects'
+              onClick={() => setMenuOpen(false)}
             >
               <span className='text-zinc-400 text-xl font-sans-alt'>03</span>
               <span className='text-4xl font-medium'>Shop (SOON)</span>
             </Link>
-            <div className='h-px mt-4 bg-zinc-300 w-full'> </div>
+
+            <div className='h-px mt-4 bg-zinc-300 w-full' />
+
             <Link
-              className=' px-8 pt-8 flex justify-between items-center'
-              href='/projects'
+              className='px-8 py-8 flex justify-between items-center'
+              href='/about'
+              onClick={() => setMenuOpen(false)}
             >
               <span className='text-zinc-400 text-xl font-sans-alt'>04</span>
               <span className='text-4xl font-medium'>About Us</span>
             </Link>
-            <div className='h-px mt-4 bg-zinc-300 w-full'> </div>
+
+            <div className='h-px mt-4 bg-zinc-300 w-full' />
+
             <Link
-              className=' px-8 pt-8 flex justify-between items-center'
-              href='/projects'
+              className='px-8 py-8 flex justify-between items-center'
+              href='/contact'
+              onClick={() => setMenuOpen(false)}
             >
               <span className='text-zinc-400 text-xl font-sans-alt'>05</span>
               <span className='text-4xl font-medium'>Contact</span>
             </Link>
-            <div className='h-px mt-4 bg-zinc-300 w-full'> </div>
+
+            <div className='h-px mt-4 bg-zinc-300 w-full' />
 
             <div className='flex flex-col gap-2 w-full justify-center items-center mb-24 mt-12 text-base font-sans-alt'>
               <Link href='/impressum'>Impressum</Link>
-              <Link href='/impressum'>Privacy</Link>
+              <Link href='/privacy'>Privacy</Link>
             </div>
           </nav>
         </div>
