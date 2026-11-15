@@ -8,17 +8,18 @@ import ProjectsOverview from '@/components/Layout/project-preview/ProjectsOvervi
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { heroContent } from '@/data/pages.data';
 
 export default function Home() {
   return (
     <main className='flex flex-col flex-1 items-center justify-start bg-zinc-50 font-sans dark:bg-zinc-50'>
-      <Hero />
-      <section className='mt-10 text-zinc-800 w-full px-4 lg:px-16'>
+      <Hero heroContent={heroContent.home} />
+      <section className='mt-10 text-sky-900 w-full px-4 lg:px-16'>
         <div className='flex flex-col gap-1'>
-          <h2 className='text-3xl uppercase font-semibold'>
+          <h2 className='text-4xl uppercase font-semibold'>
             The Frozen Collection
           </h2>
-          <p className='font-sans-alt text-xl text-zinc-700 max-w-[55ch] text-pretty'>
+          <p className='font-sans-alt font-medium leading-tight text-xl text-zinc-500 max-w-[55ch] text-pretty'>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
             erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
@@ -32,6 +33,22 @@ export default function Home() {
         </div>
         <PhotoGrid photos={latestCollection} />
         <div className='h-px w-full bg-zinc-200 mt-8'></div>
+      </section>
+      <section className='mt-10 text-zinc-800 w-full px-4 lg:px-16'>
+        <h2 className='text-3xl uppercase font-semibold'>
+          Immersive 3D Exhibition
+        </h2>
+        <p className='font-sans-alt text-xl text-zinc-700 max-w-[55ch] text-pretty'>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+          takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
       </section>
       <section className='relative w-full my-6 h-[90vh] overflow-hidden'>
         <Image
@@ -47,7 +64,7 @@ export default function Home() {
         {/* Heading */}
         <div className='absolute inset-0 flex items-end justify-center pb-16'>
           <Link href='gallery'>
-            <button className='bg-zinc-200 rounded-xl py-2 px-8 text-xl font-semibold text-zinc-900  text-center cursor-pointer'>
+            <button className='bg-zinc-200 rounded-xl flex justify-center items-center py-2 px-12 text-xl font-semibold text-zinc-900  text-center cursor-pointer hover:border-r-4 hover:border-b-4 border-sky-800'>
               Enter The Exhibition
             </button>
           </Link>

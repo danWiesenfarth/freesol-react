@@ -26,26 +26,26 @@ export default function ProjectMenu() {
             key={project.title}
             href={project.link}
             className={`
-              group/item flex items-center justify-between gap-6
-              pl-2 rounded
+              group/item flex items-start justify-between gap-6
+              pl-2  rounded
               transition-all duration-500 ease-in-out
               ${scrolled ? 'hover:bg-zinc-300/60' : 'hover:bg-zinc-300/30'}
             `}
           >
-            <div className='flex flex-col gap-1 flex-1'>
+            <div className='flex flex-col gap-1 flex-1 pt-2'>
               <h3 className='font-semibold text-lg'>{project.title}</h3>
 
               <p
                 className={`
                   text-sm transition-colors duration-500
-                  ${scrolled ? 'text-zinc-500' : 'text-zinc-300'}
+                  ${scrolled ? 'text-zinc-500' : 'text-zinc-200/80'}
                 `}
               >
                 {project.description}
               </p>
             </div>
 
-            <div className='relative w-64 aspect-[16/9] shrink-0 overflow-hidden rounded-md'>
+            <div className='relative w-64 aspect-[3/2] shrink-0 overflow-hidden rounded-md'>
               <Image
                 fill
                 src={project.thumbnail}
@@ -56,6 +56,12 @@ export default function ProjectMenu() {
             </div>
           </Link>
         ))}
+        <Link
+          className='mt-4 ml-auto py-2 px-4 font-medium hover:bg-zinc-200/80 rounded hover:text-zinc-800'
+          href='/projects'
+        >
+          View All Projects
+        </Link>
       </div>
     </div>
   );

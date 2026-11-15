@@ -30,7 +30,6 @@ export default function Header() {
   }
   function handleDropdown() {
     setProjectsExpanded((prev) => !prev);
-    console.log('triggered');
   }
 
   useEffect(() => {
@@ -65,11 +64,9 @@ export default function Header() {
         </div>
 
         <nav>
-          <ol className='flex gap-6 text-xl font-medium lg:mr-48'>
+          <ol className='flex gap-6 text-xl font-medium lg:mr-24'>
             <li className='relative group'>
-              <Link href='/photography' className={navLinkClasses}>
-                PROJECTS
-              </Link>
+              <div className={navLinkClasses}>Projects</div>
 
               <div
                 className={`
@@ -83,13 +80,19 @@ export default function Header() {
               </div>
             </li>
             <li className={navLinkClasses}>
-              <Link href='/projects'>EXHIBITION</Link>
+              <Link href='/projects'>Continents</Link>
             </li>
             <li className={navLinkClasses}>
-              <Link href='/projects'>STORE</Link>
+              <Link href='/projects'>Exhibition</Link>
             </li>
             <li className={navLinkClasses}>
-              <Link href='/projects'>CONTACT</Link>
+              <Link href='/projects'>Shop</Link>
+            </li>
+            <li className={navLinkClasses}>
+              <Link href='/projects'>About</Link>
+            </li>
+            <li className={navLinkClasses}>
+              <Link href='/projects'>Contact</Link>
             </li>
           </ol>
         </nav>
