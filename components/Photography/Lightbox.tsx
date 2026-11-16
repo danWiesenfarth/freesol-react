@@ -1,7 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import ChevronLeft from '../UI/ChevronLeft';
+import ChevronRight from '../UI/ChevronRight';
+import Close from '../UI/Close';
 
 interface LightboxProps {
   photos: {
@@ -19,6 +22,9 @@ export default function Lightbox({
   onClose,
   onNavigate,
 }: LightboxProps) {
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+
   const isOpen =
     activeIndex !== null && activeIndex >= 0 && activeIndex < photos.length;
 
@@ -69,6 +75,28 @@ export default function Lightbox({
     onNavigate((activeIndex + 1) % photos.length);
   };
 
+  // Swipe navigation
+  const handleTouchStart = (event: React.TouchEvent) => {
+    touchStartX.current = event.touches[0].clientX;
+    touchStartY.current = event.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (event: React.TouchEvent) => {
+    const deltaX = event.changedTouches[0].clientX - touchStartX.current;
+    const deltaY = event.changedTouches[0].clientY - touchStartY.current;
+
+    // Only handle intentional horizontal swipes
+    if (Math.abs(deltaX) < 50 || Math.abs(deltaX) < Math.abs(deltaY)) {
+      return;
+    }
+
+    if (deltaX < 0) {
+      nextPhoto();
+    } else {
+      previousPhoto();
+    }
+  };
+
   return (
     <div
       className='
@@ -91,11 +119,12 @@ export default function Lightbox({
         aria-label='Close lightbox'
         className='
           absolute right-6 top-6 z-20
-          text-3xl text-white/70
+          text-3xl text-zinc-200
           transition-colors hover:text-white
+          cursor-pointer
         '
       >
-        &times;
+        <Close size={32} />
       </button>
 
       {/* Previous */}
@@ -110,11 +139,12 @@ export default function Lightbox({
           className='
             absolute left-4 top-1/2 z-20
             -translate-y-1/2
-            p-3 text-3xl text-white/70
+            p-3 text-3xl text-zinc-200
             transition-colors hover:text-white
+               hover:cursor-pointer
           '
         >
-          &#8592;
+          <ChevronLeft />
         </button>
       )}
 
@@ -122,6 +152,9 @@ export default function Lightbox({
       <div
         className='relative h-full w-full max-h-[90vh] max-w-[90vw]'
         onClick={(event) => event.stopPropagation()}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        style={{ touchAction: 'pan-y' }}
       >
         <Image
           src={activePhoto.src}
@@ -129,7 +162,8 @@ export default function Lightbox({
           fill
           sizes='90vw'
           priority
-          className='object-contain'
+          draggable={false}
+          className='object-contain select-none'
         />
       </div>
 
@@ -145,11 +179,12 @@ export default function Lightbox({
           className='
             absolute right-4 top-1/2 z-20
             -translate-y-1/2
-            p-3 text-3xl text-white/70
+            p-3 text-3xl text-zinc-200
             transition-colors hover:text-white
+            hover:cursor-pointer
           '
         >
-          &#8594;
+          <ChevronRight />
         </button>
       )}
 

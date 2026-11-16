@@ -1,5 +1,5 @@
 export interface HeroContent {
-  title: string;
+  title?: string;
   subtitle?: string;
   description?: string;
   media: {

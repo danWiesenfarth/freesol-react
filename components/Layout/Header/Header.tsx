@@ -59,7 +59,10 @@ export default function Header() {
         `}
       >
         <div className='flex gap-4 items-center'>
-          <Logo className={scrolled ? 'w-12 h-12' : 'w-16 h-16'} />
+          <Link href='/'>
+            <Logo className={scrolled ? 'w-12 h-12' : 'w-16 h-16'} />
+          </Link>
+
           <span className='text-xl font-bold'>FREESOL CREATIVES</span>
         </div>
 

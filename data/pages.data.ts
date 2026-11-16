@@ -66,12 +66,9 @@ export const heroContent = {
   },
 
   africanAdventures: {
-    title: 'African Adventures',
-    subtitle: 'Into the Wild',
-    description: 'An exploration of wildlife and landscapes across Africa.',
     media: {
-      type: 'video',
-      src: '/video/africa-hero.mp4',
+      type: 'image',
+      src: '/images/africa/camps_bay3.jpg',
     },
   },
 } satisfies Record<string, HeroContent>;
