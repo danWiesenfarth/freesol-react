@@ -548,7 +548,7 @@ export const projectOverview: PhotoProjectPreview[] = [
   },
 ];
 
-export const projectsHeaderPreview: ProjectsHeaderPreview[] = [
+export const collectionsHeaderPreview: ProjectsHeaderPreview[] = [
   {
     title: 'Frozen Landscapes',
     thumbnail: '/images/antarctica/dw_snow_1.jpg',
@@ -563,6 +563,27 @@ export const projectsHeaderPreview: ProjectsHeaderPreview[] = [
   },
   {
     title: 'Eye in the Sky',
+    thumbnail: '/images/africa/sourcedargent2.jpg',
+    description: 'Lorem Ipsum',
+    link: '/collections/eye-in-the-sky',
+  },
+];
+
+export const continentsHeaderPreview: ProjectsHeaderPreview[] = [
+  {
+    title: 'Africa',
+    thumbnail: '/images/antarctica/dw_snow_1.jpg',
+    description: 'Lorem Ipsum',
+    link: '/collections/frozen-landscapes',
+  },
+  {
+    title: 'Americas',
+    thumbnail: '/images/africa/male_lion_1.jpg',
+    description: 'Lorem Ipsum',
+    link: '/collections/african-adventures',
+  },
+  {
+    title: 'Antarctica',
     thumbnail: '/images/africa/sourcedargent2.jpg',
     description: 'Lorem Ipsum',
     link: '/collections/eye-in-the-sky',

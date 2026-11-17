@@ -5,10 +5,15 @@ import { useScroll } from '@/context/ScrollContext';
 import Logo from '../../UI/Logo';
 import { useState, useEffect } from 'react';
 import MenuToggle from '../../UI/MenuToggle';
-import Image from 'next/image';
+
 import ProjectMenu from './ProjectMenu';
 import ArrowDown from '@/components/UI/ArrowDown';
 import ArrowUp from '@/components/UI/ArrowUp';
+
+import {
+  collectionsHeaderPreview,
+  continentsHeaderPreview,
+} from '@/data/photos.data';
 
 export default function Header() {
   const { scrolled, headerVisible } = useScroll();
@@ -88,11 +93,22 @@ export default function Header() {
                   transition-all duration-300 ease-in-out
                 `}
               >
-                <ProjectMenu />
+                <ProjectMenu content={collectionsHeaderPreview} />
               </div>
             </li>
-            <li className={navLinkClasses}>
-              <Link href='/continents'>Continents</Link>
+            <li className='relative group'>
+              <div className={navLinkClasses}>Continents</div>
+
+              <div
+                className={`
+                  invisible opacity-0 pointer-events-none
+                  group-hover:visible group-hover:opacity-100
+                  group-hover:pointer-events-auto
+                  transition-all duration-300 ease-in-out
+                `}
+              >
+                <ProjectMenu content={continentsHeaderPreview} buttonVisible />
+              </div>
             </li>
             <li className={navLinkClasses}>
               {scrolled ? (

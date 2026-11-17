@@ -3,9 +3,22 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useScroll } from '@/context/ScrollContext';
-import { projectsHeaderPreview } from '@/data/photos.data';
+interface MenuProps {
+  content?: {
+    title: string;
+    description?: string;
+    link: string;
+    thumbnail: string;
+  }[];
+  buttonVisible?: boolean;
+  buttonLabel?: string;
+}
 
-export default function ProjectMenu() {
+export default function ProjectMenu({
+  content = [],
+  buttonVisible = true,
+  buttonLabel = 'View All',
+}: MenuProps) {
   const { scrolled } = useScroll();
 
   return (
@@ -21,13 +34,13 @@ export default function ProjectMenu() {
           }
         `}
       >
-        {projectsHeaderPreview.map((project) => (
+        {content.map((project) => (
           <Link
             key={project.title}
             href={project.link}
             className={`
               group/item flex items-start justify-between gap-6
-              pl-2  rounded
+              pl-2 rounded
               transition-all duration-500 ease-in-out
               ${scrolled ? 'hover:bg-zinc-300/60' : 'hover:bg-zinc-300/30'}
             `}
@@ -51,17 +64,20 @@ export default function ProjectMenu() {
                 src={project.thumbnail}
                 alt={project.title}
                 sizes='256px'
+                quality={90}
                 className='object-cover transition-transform duration-500 group-hover/item:scale-105'
               />
             </div>
           </Link>
         ))}
-        <Link
-          className='mt-4 ml-auto py-2 px-4 font-medium hover:bg-zinc-100 rounded hover:text-zinc-800'
-          href='/collections'
-        >
-          View All Collections
-        </Link>
+        {buttonVisible && (
+          <Link
+            className='mt-4 ml-auto py-2 px-4 font-medium hover:bg-zinc-100 rounded hover:text-zinc-800'
+            href='/collections'
+          >
+            {buttonLabel}
+          </Link>
+        )}
       </div>
     </div>
   );
