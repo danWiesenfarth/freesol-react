@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useScroll } from '@/app/context/ScrollContext';
+import { useScroll } from '@/context/ScrollContext';
 import { projectsHeaderPreview } from '@/data/photos.data';
 
 export default function ProjectMenu() {
@@ -16,7 +16,7 @@ export default function ProjectMenu() {
           transition-all duration-500 ease-in-out
           ${
             scrolled
-              ? 'bg-zinc-200/70 backdrop-blur-md shadow-sm text-zinc-900 rounded-t-none'
+              ? 'bg-zinc-200/100 backdrop-blur-md shadow-sm text-zinc-900 rounded-t-none'
               : 'bg-zinc-200/20 backdrop-blur-md text-zinc-200'
           }
         `}
@@ -33,12 +33,12 @@ export default function ProjectMenu() {
             `}
           >
             <div className='flex flex-col gap-1 flex-1 pt-2'>
-              <h3 className='font-semibold text-lg'>{project.title}</h3>
+              <h3 className='font-semibold text-xl'>{project.title}</h3>
 
               <p
                 className={`
-                  text-sm transition-colors duration-500
-                  ${scrolled ? 'text-zinc-500' : 'text-zinc-200/80'}
+                  text-sm transition-colors duration-500 font-sans-alt
+                  ${scrolled ? 'text-zinc-500' : 'text-zinc-200'}
                 `}
               >
                 {project.description}
@@ -57,10 +57,10 @@ export default function ProjectMenu() {
           </Link>
         ))}
         <Link
-          className='mt-4 ml-auto py-2 px-4 font-medium hover:bg-zinc-200/80 rounded hover:text-zinc-800'
-          href='/projects'
+          className='mt-4 ml-auto py-2 px-4 font-medium hover:bg-zinc-100 rounded hover:text-zinc-800'
+          href='/collections'
         >
-          View All Projects
+          View All Collections
         </Link>
       </div>
     </div>

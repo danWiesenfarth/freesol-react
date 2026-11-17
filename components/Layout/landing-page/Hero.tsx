@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useScroll } from '@/app/context/ScrollContext';
+import { useScroll } from '@/context/ScrollContext';
 import Logo from '@/components/UI/Logo';
 import { HeroContent } from '@/data/hero.interface';
 
@@ -51,16 +51,21 @@ export default function Hero({ heroContent }: HeroProps) {
           <Logo className='logo-animation w-24 h-24 md:w-64 md:h-64' />
         )}
 
+        {subtitle && (
+          <h2 className='max-w-3xl text-3xl text-zinc-400 font-normal'>
+            {subtitle}
+          </h2>
+        )}
+
+        {title && (
+          <h1 className='max-w-4xl text-5xl tracking-tight   font-medium'>
+            {title}
+          </h1>
+        )}
         {description && (
           <p className='max-w-lg text-xl font-light font-sans-alt'>
             {description}
           </p>
-        )}
-
-        {title && <h1 className='max-w-4xl text-5xl font-medium'>{title}</h1>}
-
-        {subtitle && (
-          <h2 className='max-w-4xl text-3xl font-medium'>{subtitle}</h2>
         )}
       </div>
     </section>

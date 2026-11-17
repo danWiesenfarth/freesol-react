@@ -1,15 +1,21 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import type { TouchEvent, WheelEvent } from 'react';
 import { animate } from 'animejs';
 
 import Project from './Project';
 import { projectOverview } from '@/data/photos.data';
+import ChevronLeft from '@/components/UI/ChevronLeft';
+import ChevronRight from '@/components/UI/ChevronRight';
 
 export default function ProjectsOverview() {
   const trackRef = useRef<HTMLDivElement>(null);
   const positionRef = useRef(0);
   const isAnimatingRef = useRef(false);
+
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
@@ -43,6 +49,7 @@ export default function ProjectsOverview() {
   useEffect(() => {
     positionRef.current = visibleCount;
     isAnimatingRef.current = false;
+    // setActiveIndex(0);
 
     if (trackRef.current) {
       trackRef.current.style.transform = `translateX(${getTranslateX(visibleCount)})`;
@@ -90,11 +97,54 @@ export default function ProjectsOverview() {
     });
   }
 
+  // Touch swipe navigation
+  function handleTouchStart(event: TouchEvent<HTMLDivElement>) {
+    touchStartX.current = event.touches[0].clientX;
+    touchStartY.current = event.touches[0].clientY;
+  }
+
+  function handleTouchEnd(event: TouchEvent<HTMLDivElement>) {
+    const deltaX = event.changedTouches[0].clientX - touchStartX.current;
+    const deltaY = event.changedTouches[0].clientY - touchStartY.current;
+
+    const swipeThreshold = 50;
+
+    // Ignore vertical gestures and small movements
+    if (
+      Math.abs(deltaX) < swipeThreshold ||
+      Math.abs(deltaX) < Math.abs(deltaY)
+    ) {
+      return;
+    }
+
+    navigate(deltaX < 0 ? 1 : -1);
+  }
+
+  // Trackpad and horizontal mouse-wheel navigation
+  function handleWheel(event: WheelEvent<HTMLDivElement>) {
+    const deltaX = event.shiftKey ? event.deltaY : event.deltaX;
+    const deltaY = event.shiftKey ? 0 : event.deltaY;
+
+    // Only respond to intentional horizontal scrolling
+    if (Math.abs(deltaX) < 30 || Math.abs(deltaX) < Math.abs(deltaY)) {
+      return;
+    }
+
+    navigate(deltaX > 0 ? 1 : -1);
+  }
+
   if (totalProjects === 0) return null;
 
   return (
-    <section className='w-full overflow-hidden'>
-      <div className='overflow-hidden'>
+    <section className='flex w-full flex-col items-center overflow-hidden'>
+      {/* Carousel viewport */}
+      <div
+        className='w-full overflow-hidden'
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onWheel={handleWheel}
+        style={{ touchAction: 'pan-y' }}
+      >
         <div
           ref={trackRef}
           className='flex will-change-transform'
@@ -117,25 +167,30 @@ export default function ProjectsOverview() {
         </div>
       </div>
 
-      <div className='my-8 flex items-center justify-between px-24'>
+      {/* Navigation */}
+      <div className='my-8 flex max-w-3xl gap-4 items-center justify-between px-6'>
         <button
+          type='button'
           onClick={() => navigate(-1)}
           aria-label='Previous project'
           disabled={totalProjects <= visibleCount}
+          className='cursor-pointer transition-transform hover:scale-115 active:scale-105 disabled:cursor-not-allowed disabled:opacity-30'
         >
-          Previous
+          <ChevronLeft size={32} />
         </button>
 
-        <span className='font-sans-alt font-medium text-zinc-500'>
+        <span className='font-sans-alt font-medium text-zinc-900'>
           {activeIndex + 1} / {totalProjects}
         </span>
 
         <button
+          type='button'
           onClick={() => navigate(1)}
           aria-label='Next project'
           disabled={totalProjects <= visibleCount}
+          className='cursor-pointer transition-transform hover:scale-115 active:scale-105 disabled:cursor-not-allowed disabled:opacity-30'
         >
-          Next
+          <ChevronRight size={32} />
         </button>
       </div>
     </section>

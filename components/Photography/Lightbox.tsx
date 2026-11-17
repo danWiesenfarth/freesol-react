@@ -44,7 +44,7 @@ export default function Lightbox({
 
   // Keyboard navigation
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen || activeIndex === null) return;
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose();
@@ -65,7 +65,7 @@ export default function Lightbox({
     };
   }, [isOpen, activeIndex, photos.length, onClose, onNavigate]);
 
-  if (!isOpen || !activePhoto) return null;
+  if (!isOpen || !activePhoto || activeIndex === null) return null;
 
   const previousPhoto = () => {
     onNavigate((activeIndex - 1 + photos.length) % photos.length);
@@ -85,7 +85,6 @@ export default function Lightbox({
     const deltaX = event.changedTouches[0].clientX - touchStartX.current;
     const deltaY = event.changedTouches[0].clientY - touchStartY.current;
 
-    // Only handle intentional horizontal swipes
     if (Math.abs(deltaX) < 50 || Math.abs(deltaX) < Math.abs(deltaY)) {
       return;
     }
@@ -104,24 +103,27 @@ export default function Lightbox({
         flex items-center justify-center
         bg-black/98 p-4
       '
-      onClick={onClose}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) {
+          onClose();
+        }
+      }}
       role='dialog'
       aria-modal='true'
       aria-label='Photo lightbox'
     >
+      <div className='absolute inset-0' onClick={onClose} aria-hidden='true' />
+
       {/* Close */}
       <button
         type='button'
-        onClick={(event) => {
-          event.stopPropagation();
-          onClose();
-        }}
+        onClick={onClose}
         aria-label='Close lightbox'
         className='
           absolute right-6 top-6 z-20
-          text-3xl text-zinc-200
-          transition-colors hover:text-white
-          cursor-pointer
+          text-zinc-200 transition-colors
+          hover:text-white cursor-pointer
+          hover:scale-115 active:scale-105
         '
       >
         <Close size={32} />
@@ -131,28 +133,28 @@ export default function Lightbox({
       {photos.length > 1 && (
         <button
           type='button'
-          onClick={(event) => {
-            event.stopPropagation();
-            previousPhoto();
-          }}
+          onClick={previousPhoto}
           aria-label='Previous photo'
           className='
             absolute left-4 top-1/2 z-20
             -translate-y-1/2
-            p-3 text-3xl text-zinc-200
+            p-3 text-zinc-200
             transition-colors hover:text-white
-               hover:cursor-pointer
+            cursor-pointer hover:scale-115 active:scale-105
           '
         >
-          <ChevronLeft />
+          <ChevronLeft size={32} />
         </button>
       )}
 
       {/* Image */}
       <div
-        className='relative h-full w-full max-h-[90vh] max-w-[90vw]'
-        onClick={(event) => event.stopPropagation()}
+        className='
+          relative z-10
+          h-full w-full max-h-[90vh] max-w-[90vw]
+        '
         onTouchStart={handleTouchStart}
+        onClick={onClose}
         onTouchEnd={handleTouchEnd}
         style={{ touchAction: 'pan-y' }}
       >
@@ -171,25 +173,27 @@ export default function Lightbox({
       {photos.length > 1 && (
         <button
           type='button'
-          onClick={(event) => {
-            event.stopPropagation();
-            nextPhoto();
-          }}
+          onClick={nextPhoto}
           aria-label='Next photo'
           className='
             absolute right-4 top-1/2 z-20
             -translate-y-1/2
-            p-3 text-3xl text-zinc-200
+            p-3 text-zinc-200
             transition-colors hover:text-white
-            hover:cursor-pointer
+            cursor-pointer hover:scale-115 active:scale-105
           '
         >
-          <ChevronRight />
+          <ChevronRight size={32} />
         </button>
       )}
 
       {/* Counter */}
-      <p className='absolute bottom-4 font-sans-alt text-sm text-white/60'>
+      <p
+        className='
+          absolute bottom-4 z-20
+          font-sans-alt text-sm text-white/60
+        '
+      >
         {activeIndex + 1} / {photos.length}
       </p>
     </div>

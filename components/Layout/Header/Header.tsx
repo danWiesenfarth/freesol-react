@@ -1,12 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useScroll } from '@/app/context/ScrollContext';
+import { useScroll } from '@/context/ScrollContext';
 import Logo from '../../UI/Logo';
 import { useState, useEffect } from 'react';
 import MenuToggle from '../../UI/MenuToggle';
 import Image from 'next/image';
 import ProjectMenu from './ProjectMenu';
+import ArrowDown from '@/components/UI/ArrowDown';
+import ArrowUp from '@/components/UI/ArrowUp';
 
 export default function Header() {
   const { scrolled, headerVisible } = useScroll();
@@ -53,23 +55,30 @@ export default function Header() {
           ${visibilityClasses}
           ${
             scrolled
-              ? 'top-5 w-[92vw] rounded-lg bg-zinc-200/70 backdrop-blur-md shadow-sm px-8 text-zinc-900'
+              ? 'top-5 w-[92vw] rounded-lg bg-zinc-200/100 backdrop-blur-md shadow-sm px-8 text-zinc-900'
               : 'top-0 bg-transparent pt-6 w-screen px-16 text-zinc-200'
           }
         `}
       >
         <div className='flex gap-4 items-center'>
+          {scrolled ? (
+            <Link href='/'>
+              <Logo className={scrolled ? 'w-12 h-12' : 'w-16 h-16'} />
+            </Link>
+          ) : (
+            ''
+          )}
           <Link href='/'>
-            <Logo className={scrolled ? 'w-12 h-12' : 'w-16 h-16'} />
+            <span className='text-2xl tracking-tight font-bold'>
+              FREESOL CREATIVES
+            </span>
           </Link>
-
-          <span className='text-xl font-bold'>FREESOL CREATIVES</span>
         </div>
 
         <nav>
           <ol className='flex gap-6 text-xl font-medium lg:mr-24'>
             <li className='relative group'>
-              <div className={navLinkClasses}>Projects</div>
+              <div className={navLinkClasses}>Collections</div>
 
               <div
                 className={`
@@ -83,19 +92,26 @@ export default function Header() {
               </div>
             </li>
             <li className={navLinkClasses}>
-              <Link href='/projects'>Continents</Link>
+              <Link href='/continents'>Continents</Link>
             </li>
             <li className={navLinkClasses}>
-              <Link href='/projects'>Exhibition</Link>
+              {scrolled ? (
+                ''
+              ) : (
+                <span className='absolute bottom-6 font-sans-alt bg-amber-500 left-8 py-1 px-2 text-[13px] font-bold text-zinc-900 rounded-4xl'>
+                  NEW
+                </span>
+              )}
+              <Link href='/gallery'>Gallery</Link>
             </li>
             <li className={navLinkClasses}>
-              <Link href='/projects'>Shop</Link>
+              <Link href='/shop'>Shop</Link>
             </li>
             <li className={navLinkClasses}>
-              <Link href='/projects'>About</Link>
+              <Link href='/about'>About</Link>
             </li>
             <li className={navLinkClasses}>
-              <Link href='/projects'>Contact</Link>
+              <Link href='/contact'>Contact</Link>
             </li>
           </ol>
         </nav>
@@ -138,8 +154,8 @@ export default function Header() {
                 <span className='text-zinc-400 text-xl font-sans-alt'>01</span>
 
                 <div className='flex justify-center items-center gap-2'>
-                  <span>{projectsExpanded ? '⌃' : '⌄'}</span>
-                  <span className='text-4xl font-medium'>Projects</span>
+                  <div>{projectsExpanded ? <ArrowUp /> : <ArrowDown />}</div>
+                  <span className='text-4xl font-medium'>Collections</span>
                 </div>
               </button>
 
@@ -153,21 +169,18 @@ export default function Header() {
                 <div className='overflow-hidden'>
                   <div className='flex flex-col gap-3 px-8 py-4 items-end text-2xl font-medium'>
                     <Link
-                      href='/photography'
+                      href='/collections'
                       onClick={() => setMenuOpen(false)}
                     >
-                      Photography
+                      Continents
+                    </Link>
+
+                    <Link href='/gallery' onClick={() => setMenuOpen(false)}>
+                      Gallery
                     </Link>
 
                     <Link
-                      href='/projects/3d'
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      3D & Experiments
-                    </Link>
-
-                    <Link
-                      href='/projects/other'
+                      href='/collections/other'
                       onClick={() => setMenuOpen(false)}
                     >
                       Other Projects
@@ -180,20 +193,20 @@ export default function Header() {
             {/* OTHER NAVIGATION LINKS */}
             <Link
               className='px-8 py-8 flex justify-between items-center'
-              href='/exhibition'
+              href='/gallery'
               onClick={() => setMenuOpen(false)}
             >
               <span className='text-zinc-400 text-xl font-sans-alt'>02</span>
-              <span className='text-4xl font-medium'>Immersive Gallery</span>
+              <span className='text-4xl font-medium'>Gallery</span>
             </Link>
 
             <Link
               className='px-8 py-8 flex justify-between items-center'
-              href='/projects'
+              href='/collections'
               onClick={() => setMenuOpen(false)}
             >
               <span className='text-zinc-400 text-xl font-sans-alt'>03</span>
-              <span className='text-4xl font-medium'>Shop (SOON)</span>
+              <span className='text-4xl font-medium'>Shop </span>
             </Link>
 
             <Link
@@ -202,7 +215,7 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
             >
               <span className='text-zinc-400 text-xl font-sans-alt'>04</span>
-              <span className='text-4xl font-medium'>About Us</span>
+              <span className='text-4xl font-medium'>About</span>
             </Link>
 
             <Link

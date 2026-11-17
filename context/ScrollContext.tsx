@@ -30,7 +30,7 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
       const currentScrollY = window.scrollY;
       const difference = currentScrollY - lastScrollY.current;
 
-      setScrolled(currentScrollY > 10);
+      setScrolled(currentScrollY > 300);
 
       if (currentScrollY < 80) {
         setHeaderVisible(true);

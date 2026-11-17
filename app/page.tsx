@@ -12,7 +12,7 @@ import { heroContent } from '@/data/pages.data';
 
 export default function Home() {
   return (
-    <main className='flex flex-col flex-1 items-center justify-start bg-zinc-50 font-sans dark:bg-zinc-50'>
+    <main className='flex flex-col flex-1 items-center justify-start bg-zinc-50 font-sans'>
       <Hero heroContent={heroContent.home} />
       <section className='mt-10 text-sky-900 w-full px-4 lg:px-16'>
         <div className='flex flex-col gap-1'>

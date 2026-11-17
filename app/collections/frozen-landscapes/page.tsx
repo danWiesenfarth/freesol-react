@@ -6,9 +6,9 @@ import ProjectsOverview from '@/components/Layout/project-preview/ProjectsOvervi
 
 export default function FrozenLandscapes() {
   return (
-    <main>
+    <main className='flex flex-col flex-1 items-center justify-start bg-zinc-50 font-sans'>
       <Hero heroContent={heroContent.frozenLandscapes} />
-      <section className='mt-10 text-sky-900 w-full px-4 lg:px-16'>
+      <section className='mt-10 text-sky-900 w-full px-4 lg:px-16 '>
         <div className='flex flex-col gap-1'>
           <div className='text-xl uppercase font-semibold flex flex-col gap-2 items-center md:flex-row'>
             <span className='font-sans-alt'>The</span>

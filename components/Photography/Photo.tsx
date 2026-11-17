@@ -8,6 +8,7 @@ export default function Photo({ src, alt, title, location }: PhotoProps) {
         src={src}
         alt={alt}
         fill
+        quality={90}
         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         className='object-cover transition-transform duration-700 group-hover:scale-105'
       />

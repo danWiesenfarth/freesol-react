@@ -553,18 +553,18 @@ export const projectsHeaderPreview: ProjectsHeaderPreview[] = [
     title: 'Frozen Landscapes',
     thumbnail: '/images/antarctica/dw_snow_1.jpg',
     description: 'Lorem Ipsum',
-    link: '/projects/frozen-landscapes',
+    link: '/collections/frozen-landscapes',
   },
   {
     title: 'African Adventures',
     thumbnail: '/images/africa/male_lion_1.jpg',
     description: 'Lorem Ipsum',
-    link: '/projects/african-adventures',
+    link: '/collections/african-adventures',
   },
   {
     title: 'Eye in the Sky',
-    thumbnail: '/images/africa/male_lion_1.jpg',
+    thumbnail: '/images/africa/sourcedargent2.jpg',
     description: 'Lorem Ipsum',
-    link: 'projects/eye-in-the-sky',
+    link: '/collections/eye-in-the-sky',
   },
 ];

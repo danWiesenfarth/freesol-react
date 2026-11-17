@@ -4,7 +4,7 @@ import { neueRegrade, satoshi } from './fonts';
 
 import Header from '../components/Layout/Header/Header';
 import Footer from '@/components/Layout/Footer';
-import { ScrollProvider } from './context/ScrollContext';
+import { ScrollProvider } from '../context/ScrollContext';
 
 export const metadata: Metadata = {
   title: 'Freesol Creatives',
