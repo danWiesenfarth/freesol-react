@@ -1,3 +1,5 @@
+import { HeroContent } from './hero.interface';
+
 export const navigationStructure = [
   {
     title: 'Collections',
@@ -39,7 +41,6 @@ export const navigationStructure = [
     link: '/contact',
   },
 ];
-
 export const heroContent = {
   home: {
     title: 'Freesol Creatives',
@@ -69,4 +70,4 @@ export const heroContent = {
       src: '/images/africa/camps_bay3.jpg',
     },
   },
-};
+} as const satisfies Record<string, HeroContent>;
