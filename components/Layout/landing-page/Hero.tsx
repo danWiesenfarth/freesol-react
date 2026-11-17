@@ -3,9 +3,11 @@
 import Image from 'next/image';
 import { useScroll } from '@/context/ScrollContext';
 import Logo from '@/components/UI/Logo';
+import { HeroProps } from '@/data/hero.interface';
 
-export default function Hero({ heroContent }) {
+export default function Hero({ heroContent }: HeroProps) {
   const { scrolled } = useScroll();
+
   const { title, subtitle, description, media, showLogo = false } = heroContent;
 
   return (
@@ -53,10 +55,11 @@ export default function Hero({ heroContent }) {
         )}
 
         {title && (
-          <h1 className='max-w-4xl text-5xl tracking-tight   font-medium'>
+          <h1 className='max-w-4xl text-5xl tracking-tight font-medium'>
             {title}
           </h1>
         )}
+
         {description && (
           <p className='max-w-lg text-xl font-light font-sans-alt'>
             {description}
