@@ -143,7 +143,7 @@ export default function Header() {
           ${visibilityClasses}
           ${
             scrolled
-              ? 'w-[92vw] px-6 bg-zinc-200/70 backdrop-blur-md'
+              ? 'w-[92vw] px-6 bg-zinc-200'
               : 'w-[92vw] px-2 text-zinc-200'
           }
           ${menuOpen ? 'text-zinc-900' : ''}
