@@ -1,8 +1,9 @@
 import PhotoGrid from '@/components/Photography/PhotoGrid';
-import { africaPhotos } from '@/data/photos.data';
+import { africaPhotos } from '@/data/continents/africa.data';
 import Hero from '@/components/Layout/landing-page/Hero';
 import { heroContent } from '@/data/pages.data';
 import ProjectsOverview from '@/components/Layout/project-preview/ProjectsOverview';
+import { continentsData } from '@/data/continents/continents.data';
 
 export default function AfricanAdventures() {
   return (
@@ -32,7 +33,7 @@ export default function AfricanAdventures() {
         <h2 className='text-3xl mb-4 font-semibold text-zinc-900'>
           Discover more of our work
         </h2>
-        <ProjectsOverview />
+        <ProjectsOverview content={continentsData} />
       </section>
     </main>
   );
