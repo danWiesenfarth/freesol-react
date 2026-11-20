@@ -7,7 +7,7 @@ export default function AfricaPage() {
   return (
     <main>
       <Hero heroContent={heroContent.africanAdventures} />
-      <section className='mt-10 w-full px-4 lg:px-16'>
+      <section className='mt-10 w-full px-4 lg:px-10'>
         <PhotoGrid photos={africaPhotos} />
       </section>
     </main>

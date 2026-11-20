@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main className='flex flex-col flex-1 items-center justify-start bg-zinc-50 font-sans'>
       <Hero heroContent={heroContent.home} />
-      <section className='mt-10 w-full px-4 lg:px-16'>
+      <section className='mt-10 w-full px-4 lg:px-10'>
         <div className='flex flex-col gap-1'>
           <h2 className='text-3xl uppercase font-semibold'>
             The Frozen Collection
@@ -30,7 +30,7 @@ export default function Home() {
         <PhotoGrid photos={latestCollection} />
         <div className='h-px w-full bg-zinc-200 mt-8'></div>
       </section>
-      <section className='mt-10 text-zinc-800 w-full px-4 lg:px-16'>
+      <section className='mt-10 text-zinc-800 w-full px-4 lg:px-10'>
         <h2 className='text-3xl uppercase font-semibold'>
           Immersive 3D Exhibition
         </h2>
@@ -62,7 +62,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section className='w-full px-4 lg:px-16 my-6'>
+      <section className='w-full px-4 lg:px-10 my-6'>
         <h2 className='text-3xl mb-4 font-semibold text-zinc-900'>
           Discover more of our work
         </h2>

@@ -9,7 +9,7 @@ export default function AfricanAdventures() {
   return (
     <main>
       <Hero heroContent={heroContent.africanAdventures} />
-      <section className='mt-10 text-amber-500 w-full px-4 lg:px-16'>
+      <section className='mt-10 text-amber-500 w-full px-4 lg:px-10'>
         <div className='flex flex-col gap-1'>
           <h2 className='text-4xl uppercase font-semibold'>
             African Adventures
@@ -29,7 +29,7 @@ export default function AfricanAdventures() {
         <PhotoGrid photos={africaPhotos} />
         <div className='h-px w-full bg-zinc-200 mt-8'></div>
       </section>
-      <section className='w-full px-4 lg:px-16 my-6'>
+      <section className='w-full px-4 lg:px-10 my-6'>
         <h2 className='text-3xl mb-4 font-semibold text-zinc-900'>
           Discover more of our work
         </h2>

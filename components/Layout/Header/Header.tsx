@@ -10,6 +10,7 @@ import MenuToggle from '@/components/UI/MenuToggle';
 import ProjectMenu from './ProjectMenu';
 
 import { continentsData } from '@/data/continents/continents.data';
+import { collectionsData } from '@/data/collections/collection.data';
 
 // Pages with dark hero backgrounds that need light text.
 const lightHeaderRoutes = ['/'];
@@ -77,16 +78,15 @@ export default function Header() {
           ${
             scrolled
               ? 'top-5 w-[92vw] rounded-lg bg-zinc-100 shadow-sm px-8'
-              : 'top-0 bg-transparent pt-6 w-screen px-16'
+              : 'top-0 bg-transparent pt-6 w-screen px-8 lg:px-12'
           }
+
         `}
       >
         <div className='flex gap-4 items-center'>
-          {scrolled && (
-            <Link href='/'>
-              <Logo className='w-12 h-12' />
-            </Link>
-          )}
+          <Link href='/'>
+            <Logo className='w-12 h-12' />
+          </Link>
 
           <Link href='/'>
             <span className='text-2xl tracking-tight font-bold'>
@@ -96,7 +96,7 @@ export default function Header() {
         </div>
 
         <nav>
-          <ol className='flex gap-6 text-xl font-medium lg:mr-24'>
+          <ol className='flex gap-6 text-xl font-medium'>
             <li className='relative group'>
               <div className={navLinkClasses}>Collections</div>
 
@@ -109,7 +109,7 @@ export default function Header() {
                 `}
               >
                 <ProjectMenu
-                  content={continentsData.slice(0, 3)}
+                  content={collectionsData.slice(0, 3)}
                   isLightHeader={!isLightHeader}
                 />
               </div>
@@ -168,10 +168,13 @@ export default function Header() {
           transition-all duration-500 ease-in-out
           ${visibilityClasses}
           ${menuOpen ? 'text-zinc-900' : headerColor}
+          w-[92vw]
           ${
-            scrolled
-              ? 'w-[92vw] px-6 bg-zinc-200'
-              : 'w-[92vw] px-2 bg-transparent'
+            menuOpen
+              ? 'px-6 bg-zinc-200'
+              : scrolled
+                ? 'px-6 bg-zinc-200'
+                : 'px-2 bg-transparent'
           }
         `}
       >

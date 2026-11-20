@@ -16,46 +16,69 @@ export default function MenuToggle({ isOpen }: MenuToggleProps) {
 
     if (isOpen) {
       animate(topLine.current, {
-        x1: 5,
-        y1: 5,
-        x2: 11,
-        y2: 11,
-        rotate: 45,
+        x1: 3,
+        y1: 3,
+        x2: 13,
+        y2: 13,
         duration: 300,
         ease: 'out(3)',
       });
 
       animate(bottomLine.current, {
-        x1: 5,
-        y1: 11,
-        x2: 11,
-        y2: 5,
-        rotate: -45,
+        x1: 3,
+        y1: 13,
+        x2: 13,
+        y2: 3,
         duration: 300,
         ease: 'out(3)',
       });
     } else {
-      // Return to hamburger position
+      animate(topLine.current, {
+        x1: 2,
+        y1: 6,
+        x2: 14,
+        y2: 6,
+        duration: 300,
+        ease: 'out(3)',
+      });
+
+      animate(bottomLine.current, {
+        x1: 2,
+        y1: 10,
+        x2: 14,
+        y2: 10,
+        duration: 300,
+        ease: 'out(3)',
+      });
     }
   }, [isOpen]);
 
   return (
     <svg
-      width='16'
-      height='16'
+      width='20'
+      height='20'
       viewBox='0 0 16 16'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
-      <path
-        d='M6 6L14 6'
-        strokeWidth='2'
+      <line
+        ref={topLine}
+        x1='2'
+        y1='6'
+        x2='14'
+        y2='6'
+        strokeWidth='1.5'
         strokeLinecap='round'
         stroke='currentColor'
       />
-      <path
-        d='M2 10L14 10'
-        strokeWidth='2'
+
+      <line
+        ref={bottomLine}
+        x1='2'
+        y1='10'
+        x2='14'
+        y2='10'
+        strokeWidth='1.5'
         strokeLinecap='round'
         stroke='currentColor'
       />

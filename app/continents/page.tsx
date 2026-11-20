@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function ContinentsPage() {
   return (
     <main>
-      <section className='w-full px-4 lg:px-16'>
+      <section className='w-full px-4 lg:px-10'>
         <div className=' mt-24 md:mt-36 flex gap-4 items-center'>
           <Link
             href='/'
@@ -54,7 +54,7 @@ export default function ContinentsPage() {
         </ol>
       </section>
 
-      <section className='mt-10  w-full px-4 lg:px-16'>
+      <section className='mt-10  w-full px-4 lg:px-10'>
         <ProjectsOverview content={continentsData} />
       </section>
     </main>
