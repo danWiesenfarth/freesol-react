@@ -8,7 +8,13 @@ import Project from './Project';
 import ChevronLeft from '@/components/UI/ChevronLeft';
 import ChevronRight from '@/components/UI/ChevronRight';
 
-export default function ProjectsOverview({ content }) {
+import type { PhotoProjectPreview } from '@/data/interfaces/photo.interface';
+
+interface ProjectsOverviewProps {
+  content: PhotoProjectPreview[];
+}
+
+export default function ProjectsOverview({ content }: ProjectsOverviewProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const positionRef = useRef(0);
   const isAnimatingRef = useRef(false);
@@ -20,6 +26,15 @@ export default function ProjectsOverview({ content }) {
   const [visibleCount, setVisibleCount] = useState(3);
 
   const totalProjects = content.length;
+
+  const slides = [
+    ...content.slice(-visibleCount),
+    ...content,
+    ...content.slice(0, visibleCount),
+  ];
+
+  const getTranslateX = (position: number) =>
+    `${-(position * (100 / slides.length))}%`;
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 767px)');
@@ -36,19 +51,9 @@ export default function ProjectsOverview({ content }) {
     };
   }, []);
 
-  const slides = [
-    ...content.slice(-visibleCount),
-    ...content,
-    ...content.slice(0, visibleCount),
-  ];
-
-  const getTranslateX = (position: number) =>
-    `${-(position * (100 / slides.length))}%`;
-
   useEffect(() => {
     positionRef.current = visibleCount;
     isAnimatingRef.current = false;
-    // setActiveIndex(0);
 
     if (trackRef.current) {
       trackRef.current.style.transform = `translateX(${getTranslateX(visibleCount)})`;
@@ -96,7 +101,6 @@ export default function ProjectsOverview({ content }) {
     });
   }
 
-  // Touch swipe navigation
   function handleTouchStart(event: TouchEvent<HTMLDivElement>) {
     touchStartX.current = event.touches[0].clientX;
     touchStartY.current = event.touches[0].clientY;
@@ -108,7 +112,6 @@ export default function ProjectsOverview({ content }) {
 
     const swipeThreshold = 50;
 
-    // Ignore vertical gestures and small movements
     if (
       Math.abs(deltaX) < swipeThreshold ||
       Math.abs(deltaX) < Math.abs(deltaY)
@@ -119,12 +122,10 @@ export default function ProjectsOverview({ content }) {
     navigate(deltaX < 0 ? 1 : -1);
   }
 
-  // Trackpad and horizontal mouse-wheel navigation
   function handleWheel(event: WheelEvent<HTMLDivElement>) {
     const deltaX = event.shiftKey ? event.deltaY : event.deltaX;
     const deltaY = event.shiftKey ? 0 : event.deltaY;
 
-    // Only respond to intentional horizontal scrolling
     if (Math.abs(deltaX) < 30 || Math.abs(deltaX) < Math.abs(deltaY)) {
       return;
     }
@@ -136,7 +137,6 @@ export default function ProjectsOverview({ content }) {
 
   return (
     <section className='flex w-full flex-col items-center overflow-hidden'>
-      {/* Carousel viewport */}
       <div
         className='w-full overflow-hidden'
         onTouchStart={handleTouchStart}
@@ -166,7 +166,6 @@ export default function ProjectsOverview({ content }) {
         </div>
       </div>
 
-      {/* Navigation */}
       <div className='my-8 flex max-w-3xl gap-4 items-center justify-between px-6'>
         <button
           type='button'

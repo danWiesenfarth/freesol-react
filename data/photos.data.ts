@@ -1,6 +1,6 @@
 //TODO: THIS SHOULD BE LATESTCOLLECTION.DATA.TS
 
-import { PhotoProps, PhotoProjectPreview } from './interfaces/photo.interface';
+import { PhotoProps } from './interfaces/photo.interface';
 
 export const latestCollection: PhotoProps[] = [
   {
@@ -10,6 +10,13 @@ export const latestCollection: PhotoProps[] = [
     location: 'Antarctica',
     spanCol: 4,
     spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '80% 40%',
+        tablet: '50% 10%',
+        mobile: '10% 35%',
+      },
+    },
   },
   {
     src: '/images/arctic/ice2.jpg',
@@ -90,6 +97,13 @@ export const latestCollection: PhotoProps[] = [
     location: 'Deception Island, Antarctica',
     spanCol: 4,
     spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '80% 40%',
+        tablet: '50% 10%',
+        mobile: '10% 35%',
+      },
+    },
   },
   {
     src: '/images/antarctica/tk_nansen_5.jpg',
@@ -98,6 +112,13 @@ export const latestCollection: PhotoProps[] = [
     location: 'Antarctica',
     spanCol: 4,
     spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '80% 40%',
+        tablet: '50% 10%',
+        mobile: '10% 35%',
+      },
+    },
   },
   {
     src: '/images/arctic/ice_drone4.jpg',
@@ -106,6 +127,13 @@ export const latestCollection: PhotoProps[] = [
     location: 'Greenland',
     spanCol: 8,
     spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '80% 40%',
+        tablet: '50% 10%',
+        mobile: '10% 35%',
+      },
+    },
   },
   {
     src: '/images/arctic/aurora_wallpaper.jpg',
