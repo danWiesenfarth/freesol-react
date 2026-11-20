@@ -9,26 +9,22 @@ import ProjectsOverview from '@/components/Layout/project-preview/ProjectsOvervi
 import Image from 'next/image';
 import Link from 'next/link';
 import { heroContent } from '@/data/pages.data';
+import { continentsData } from '@/data/continents/continents.data';
 
 export default function Home() {
   return (
     <main className='flex flex-col flex-1 items-center justify-start bg-zinc-50 font-sans'>
       <Hero heroContent={heroContent.home} />
-      <section className='mt-10 text-sky-900 w-full px-4 lg:px-16'>
+      <section className='mt-10 w-full px-4 lg:px-16'>
         <div className='flex flex-col gap-1'>
-          <h2 className='text-4xl uppercase font-semibold'>
+          <h2 className='text-3xl uppercase font-semibold'>
             The Frozen Collection
           </h2>
-          <p className='font-sans-alt font-medium leading-tight text-xl text-zinc-500 max-w-[55ch] text-pretty'>
+          <p className='font-sans-alt font-medium text-base text-zinc-500 max-w-[55ch] text-pretty'>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
             erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            et ea rebum.
           </p>
         </div>
         <PhotoGrid photos={latestCollection} />
@@ -38,16 +34,12 @@ export default function Home() {
         <h2 className='text-3xl uppercase font-semibold'>
           Immersive 3D Exhibition
         </h2>
-        <p className='font-sans-alt text-xl text-zinc-700 max-w-[55ch] text-pretty'>
+        <p className='font-sans-alt font-medium text-base text-zinc-500 max-w-[55ch] text-pretty'>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
           sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
           rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet.
+          ipsum dolor sit amet.
         </p>
       </section>
       <section className='relative w-full my-6 h-[90vh] overflow-hidden'>
@@ -74,7 +66,7 @@ export default function Home() {
         <h2 className='text-3xl mb-4 font-semibold text-zinc-900'>
           Discover more of our work
         </h2>
-        <ProjectsOverview />
+        <ProjectsOverview content={continentsData} />
       </section>
     </main>
   );

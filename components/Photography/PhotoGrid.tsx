@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Photo from './Photo';
 import Lightbox from './Lightbox';
-import type { PhotoProps } from '../../data/photo.interface';
+import type { PhotoProps } from '../../data/interfaces/photo.interface';
 
 interface PhotoGridProps {
   photos: PhotoProps[];
@@ -36,8 +36,8 @@ export default function PhotoGrid({ photos, className = '' }: PhotoGridProps) {
             className='
               relative min-w-0 overflow-hidden text-left
               col-span-3 row-span-4
-              min-[1025px]:col-span-(--span-col)
-              min-[1025px]:row-span-(--span-row)
+              min-[1032px]:col-span-(--span-col)
+              min-[1032px]:row-span-(--span-row)
               max-[640px]:col-span-1
               max-[640px]:row-span-3
             '

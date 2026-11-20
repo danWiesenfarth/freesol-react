@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useScroll } from '@/context/ScrollContext';
 import Logo from '@/components/UI/Logo';
-import { HeroProps } from '@/data/hero.interface';
+import { HeroProps } from '@/data/interfaces/hero.interface';
 
 export default function Hero({ heroContent }: HeroProps) {
   const { scrolled } = useScroll();

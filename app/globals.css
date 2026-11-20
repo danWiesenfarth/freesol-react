@@ -51,18 +51,18 @@ body {
   transform-origin: center;
 }
 
-.photo-image {
+.media-image {
   object-position: var(--focal-desktop);
 }
 
-@media (max-width: 1024px) {
-  .photo-image {
+@media (max-width: 1032px) {
+  .media-image {
     object-position: var(--focal-tablet);
   }
 }
 
 @media (max-width: 640px) {
-  .photo-image {
+  .media-image {
     object-position: var(--focal-mobile);
   }
 }

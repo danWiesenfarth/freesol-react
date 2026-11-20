@@ -1,4 +1,4 @@
-import { IconProps } from '@/data/icon.interface';
+import { IconProps } from '@/data/interfaces/icon.interface';
 
 export default function ArrowDown({ size = 24, className }: IconProps) {
   return (

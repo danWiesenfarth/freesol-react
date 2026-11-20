@@ -1,7 +1,7 @@
 import ProjectsOverview from '@/components/Layout/project-preview/ProjectsOverview';
 import ChevronLeft from '@/components/UI/ChevronLeft';
 
-import { continentsData } from '@/data/continents.data';
+import { continentsData } from '@/data/continents/continents.data';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -28,9 +28,9 @@ export default function ContinentsPage() {
 
         <ol className='flex flex-col my-4 gap-2 md:grid md:grid-cols-2'>
           {continentsData.map((continent) => (
-            <li key={continent.link}>
+            <li key={continent.src}>
               <Link
-                href={continent.link}
+                href={continent.src}
                 className='group relative block h-96 md:h-128 w-full overflow-hidden rounded'
               >
                 <Image
@@ -55,7 +55,7 @@ export default function ContinentsPage() {
       </section>
 
       <section className='mt-10  w-full px-4 lg:px-16'>
-        <ProjectsOverview />
+        <ProjectsOverview content={continentsData} />
       </section>
     </main>
   );

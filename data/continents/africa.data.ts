@@ -1,4 +1,4 @@
-import { PhotoProps } from '../photo.interface';
+import type { PhotoProps } from '@/data/interfaces/photo.interface';
 
 export const africaPhotos: PhotoProps[] = [
   {
@@ -8,10 +8,12 @@ export const africaPhotos: PhotoProps[] = [
     location: 'South Africa',
     spanCol: 6,
     spanRow: 4,
-    focalPoint: {
-      desktop: '15% 40%',
-      tablet: '15% 40%',
-      mobile: '15% 40%',
+    imageSettings: {
+      focalPoint: {
+        desktop: '15% 40%',
+        tablet: '15% 40%',
+        mobile: '15% 10%',
+      },
     },
   },
   {
@@ -29,10 +31,12 @@ export const africaPhotos: PhotoProps[] = [
     location: 'Namibia',
     spanCol: 4,
     spanRow: 3,
-    focalPoint: {
-      desktop: '85% 40%',
-      tablet: '85% 40%',
-      mobile: '85% 40%',
+    imageSettings: {
+      focalPoint: {
+        desktop: '85% 40%',
+        tablet: '85% 40%',
+        mobile: '85% 40%',
+      },
     },
   },
   {
@@ -65,7 +69,14 @@ export const africaPhotos: PhotoProps[] = [
     title: 'Tall Horizons',
     location: 'South Africa',
     spanCol: 4,
-    spanRow: 4,
+    spanRow: 6,
+    imageSettings: {
+      focalPoint: {
+        desktop: '5% 40%',
+        tablet: '5% 40%',
+        mobile: '5% 40%',
+      },
+    },
   },
   {
     src: '/images/africa/anna_sossus.jpg',
@@ -73,11 +84,13 @@ export const africaPhotos: PhotoProps[] = [
     title: 'Sossusvlei',
     location: 'Sossusvlei, Namibia',
     spanCol: 8,
-    spanRow: 2,
-    focalPoint: {
-      desktop: '65% 20%',
-      tablet: '75% 40%',
-      mobile: '80% 50%',
+    spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '65% 20%',
+        tablet: '75% 40%',
+        mobile: '80% 50%',
+      },
     },
   },
   {
@@ -95,6 +108,13 @@ export const africaPhotos: PhotoProps[] = [
     location: 'South Africa',
     spanCol: 6,
     spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '20% 40%',
+        tablet: '20% 40%',
+        mobile: '20% 40%',
+      },
+    },
   },
   {
     src: '/images/africa/Dune45_2.jpg',
@@ -119,6 +139,13 @@ export const africaPhotos: PhotoProps[] = [
     location: 'South Africa',
     spanCol: 4,
     spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '35% 40%',
+        tablet: '35% 40%',
+        mobile: '35% 40%',
+      },
+    },
   },
   {
     src: '/images/africa/female_lion_1.jpg',
@@ -136,7 +163,6 @@ export const africaPhotos: PhotoProps[] = [
     spanCol: 8,
     spanRow: 4,
   },
-
   {
     src: '/images/africa/kolman5.jpg',
     alt: 'Abandoned buildings in the Kolmanskop ghost town',

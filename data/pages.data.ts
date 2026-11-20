@@ -1,4 +1,4 @@
-import { HeroContent } from './hero.interface';
+import { HeroContent } from './interfaces/hero.interface';
 
 export const navigationStructure = [
   {

@@ -9,10 +9,7 @@ import Logo from '@/components/UI/Logo';
 import MenuToggle from '@/components/UI/MenuToggle';
 import ProjectMenu from './ProjectMenu';
 
-import {
-  collectionsHeaderPreview,
-  continentsHeaderPreview,
-} from '@/data/photos.data';
+import { continentsData } from '@/data/continents/continents.data';
 
 // Pages with dark hero backgrounds that need light text.
 const lightHeaderRoutes = ['/'];
@@ -79,7 +76,7 @@ export default function Header() {
           ${headerColor}
           ${
             scrolled
-              ? 'top-5 w-[92vw] rounded-lg bg-zinc-200 backdrop-blur-md shadow-sm px-8'
+              ? 'top-5 w-[92vw] rounded-lg bg-zinc-100 shadow-sm px-8'
               : 'top-0 bg-transparent pt-6 w-screen px-16'
           }
         `}
@@ -111,7 +108,10 @@ export default function Header() {
                   transition-all duration-300 ease-in-out
                 `}
               >
-                <ProjectMenu content={collectionsHeaderPreview} />
+                <ProjectMenu
+                  content={continentsData.slice(0, 3)}
+                  isLightHeader={!isLightHeader}
+                />
               </div>
             </li>
 
@@ -127,9 +127,10 @@ export default function Header() {
                 `}
               >
                 <ProjectMenu
-                  content={continentsHeaderPreview}
+                  content={continentsData.slice(0, 3)}
                   buttonVisible
                   buttonLink='/continents'
+                  isLightHeader={!isLightHeader}
                 />
               </div>
             </li>

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import type { PhotoProjectPreview } from '@/data/photo.interface';
+import type { PhotoProjectPreview } from '@/data/interfaces/photo.interface';
 
 export default function Project({
   src,

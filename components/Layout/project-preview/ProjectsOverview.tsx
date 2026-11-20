@@ -5,11 +5,10 @@ import type { TouchEvent, WheelEvent } from 'react';
 import { animate } from 'animejs';
 
 import Project from './Project';
-import { projectOverview } from '@/data/photos.data';
 import ChevronLeft from '@/components/UI/ChevronLeft';
 import ChevronRight from '@/components/UI/ChevronRight';
 
-export default function ProjectsOverview() {
+export default function ProjectsOverview({ content }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const positionRef = useRef(0);
   const isAnimatingRef = useRef(false);
@@ -20,7 +19,7 @@ export default function ProjectsOverview() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
 
-  const totalProjects = projectOverview.length;
+  const totalProjects = content.length;
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 767px)');
@@ -38,9 +37,9 @@ export default function ProjectsOverview() {
   }, []);
 
   const slides = [
-    ...projectOverview.slice(-visibleCount),
-    ...projectOverview,
-    ...projectOverview.slice(0, visibleCount),
+    ...content.slice(-visibleCount),
+    ...content,
+    ...content.slice(0, visibleCount),
   ];
 
   const getTranslateX = (position: number) =>
