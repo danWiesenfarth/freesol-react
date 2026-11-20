@@ -1,16 +1,36 @@
 import Image from 'next/image';
 import { PhotoProps } from '../../data/photo.interface';
 
-export default function Photo({ src, alt, title, location }: PhotoProps) {
+export default function Photo({
+  src,
+  alt,
+  title,
+  location,
+  focalPoint,
+}: PhotoProps) {
   return (
-    <div className='group relative h-full w-full overflow-hidden hover:cursor-zoom-in'>
+    <div
+      className='group relative h-full w-full overflow-hidden hover:cursor-zoom-in'
+      style={
+        {
+          '--focal-desktop': focalPoint?.desktop ?? 'center',
+          '--focal-tablet':
+            focalPoint?.tablet ?? focalPoint?.desktop ?? 'center',
+          '--focal-mobile':
+            focalPoint?.mobile ??
+            focalPoint?.tablet ??
+            focalPoint?.desktop ??
+            'center',
+        } as React.CSSProperties
+      }
+    >
       <Image
         src={src}
         alt={alt}
         fill
         quality={90}
         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-        className='object-cover transition-transform duration-700 group-hover:scale-105'
+        className='photo-image object-cover transition-transform duration-700 group-hover:scale-105'
       />
 
       <div

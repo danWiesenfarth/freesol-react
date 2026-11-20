@@ -43,11 +43,12 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
       lastScrollY.current = currentScrollY;
     };
 
-    // Synchronize immediately on mount
     lastScrollY.current = window.scrollY;
     handleScroll();
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, {
+      passive: true,
+    });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);

@@ -23,6 +23,7 @@ export default function PhotoGrid({ photos, className = '' }: PhotoGridProps) {
           max-[1024px]:auto-rows-[120px]
           max-[640px]:grid-cols-1
           max-[640px]:auto-rows-[180px]
+          max-w-[1920px]
           ${className}
         `}
       >

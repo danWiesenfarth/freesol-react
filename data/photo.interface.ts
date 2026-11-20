@@ -5,6 +5,12 @@ export interface PhotoProps {
   location: string;
   spanCol: number;
   spanRow: number;
+
+  focalPoint?: {
+    desktop?: string;
+    tablet?: string;
+    mobile?: string;
+  };
 }
 
 export interface PhotoProjectPreview {

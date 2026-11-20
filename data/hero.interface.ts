@@ -3,6 +3,7 @@ export interface HeroContent {
   subtitle?: string;
   description?: string;
   showLogo?: boolean;
+  height?: string;
   media: {
     type: 'image' | 'video';
     src: string;

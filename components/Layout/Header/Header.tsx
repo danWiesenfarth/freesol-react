@@ -1,24 +1,39 @@
 'use client';
 
 import Link from 'next/link';
-import { useScroll } from '@/context/ScrollContext';
-import Logo from '../../UI/Logo';
-import { useState, useEffect } from 'react';
-import MenuToggle from '../../UI/MenuToggle';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
+import { useScroll } from '@/context/ScrollContext';
+import Logo from '@/components/UI/Logo';
+import MenuToggle from '@/components/UI/MenuToggle';
 import ProjectMenu from './ProjectMenu';
-import ArrowDown from '@/components/UI/ArrowDown';
-import ArrowUp from '@/components/UI/ArrowUp';
 
 import {
   collectionsHeaderPreview,
   continentsHeaderPreview,
 } from '@/data/photos.data';
 
+// Pages with dark hero backgrounds that need light text.
+const lightHeaderRoutes = ['/'];
+
 export default function Header() {
   const { scrolled, headerVisible } = useScroll();
+  const pathname = usePathname();
+
   const [menuOpen, setMenuOpen] = useState(false);
-  const [projectsExpanded, setProjectsExpanded] = useState(false);
+
+  // Determine header text color from the current route.
+  const isLightHeader =
+    lightHeaderRoutes.includes(pathname) ||
+    pathname.startsWith('/collections/') ||
+    pathname.startsWith('/continents/');
+
+  const headerColor = scrolled
+    ? 'text-zinc-900'
+    : isLightHeader
+      ? 'text-zinc-200'
+      : 'text-zinc-900';
 
   const visibilityClasses = headerVisible
     ? 'translate-y-0 opacity-100'
@@ -35,19 +50,22 @@ export default function Header() {
   function handleMenuToggle() {
     setMenuOpen((prev) => !prev);
   }
-  function handleDropdown() {
-    setProjectsExpanded((prev) => !prev);
-  }
 
+  // Lock body scrolling while the mobile menu is open.
   useEffect(() => {
-    const previousOverflow = (document.body.style.overflow = menuOpen
-      ? 'hidden'
-      : '');
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
 
     return () => {
       document.body.style.overflow = previousOverflow;
     };
   }, [menuOpen]);
+
+  // Close the mobile menu when navigating to another route.
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header>
@@ -58,21 +76,21 @@ export default function Header() {
           fixed z-[9000] h-22 -translate-x-1/2
           transition-all duration-500 ease-in-out
           ${visibilityClasses}
+          ${headerColor}
           ${
             scrolled
-              ? 'top-5 w-[92vw] rounded-lg bg-zinc-200/100 backdrop-blur-md shadow-sm px-8 text-zinc-900'
-              : 'top-0 bg-transparent pt-6 w-screen px-16 text-zinc-200'
+              ? 'top-5 w-[92vw] rounded-lg bg-zinc-200 backdrop-blur-md shadow-sm px-8'
+              : 'top-0 bg-transparent pt-6 w-screen px-16'
           }
         `}
       >
         <div className='flex gap-4 items-center'>
-          {scrolled ? (
+          {scrolled && (
             <Link href='/'>
-              <Logo className={scrolled ? 'w-12 h-12' : 'w-16 h-16'} />
+              <Logo className='w-12 h-12' />
             </Link>
-          ) : (
-            ''
           )}
+
           <Link href='/'>
             <span className='text-2xl tracking-tight font-bold'>
               FREESOL CREATIVES
@@ -96,6 +114,7 @@ export default function Header() {
                 <ProjectMenu content={collectionsHeaderPreview} />
               </div>
             </li>
+
             <li className='relative group'>
               <div className={navLinkClasses}>Continents</div>
 
@@ -107,25 +126,31 @@ export default function Header() {
                   transition-all duration-300 ease-in-out
                 `}
               >
-                <ProjectMenu content={continentsHeaderPreview} buttonVisible />
+                <ProjectMenu
+                  content={continentsHeaderPreview}
+                  buttonVisible
+                  buttonLink='/continents'
+                />
               </div>
             </li>
+
             <li className={navLinkClasses}>
-              {scrolled ? (
-                ''
-              ) : (
+              {!scrolled && (
                 <span className='absolute bottom-6 font-sans-alt bg-amber-500 left-8 py-1 px-2 text-[13px] font-bold text-zinc-900 rounded-4xl'>
                   NEW
                 </span>
               )}
               <Link href='/gallery'>Gallery</Link>
             </li>
+
             <li className={navLinkClasses}>
               <Link href='/shop'>Shop</Link>
             </li>
+
             <li className={navLinkClasses}>
               <Link href='/about'>About</Link>
             </li>
+
             <li className={navLinkClasses}>
               <Link href='/contact'>Contact</Link>
             </li>
@@ -141,88 +166,65 @@ export default function Header() {
           -translate-x-1/2 rounded-md py-2
           transition-all duration-500 ease-in-out
           ${visibilityClasses}
+          ${menuOpen ? 'text-zinc-900' : headerColor}
           ${
             scrolled
               ? 'w-[92vw] px-6 bg-zinc-200'
-              : 'w-[92vw] px-2 text-zinc-200'
+              : 'w-[92vw] px-2 bg-transparent'
           }
-          ${menuOpen ? 'text-zinc-900' : ''}
         `}
       >
-        <Logo className='w-10 h-10' />
-        <button onClick={handleMenuToggle} aria-label='Open menu'>
+        <Link href='/' onClick={() => setMenuOpen(false)}>
+          <Logo className='w-10 h-10' />
+        </Link>
+
+        <button
+          onClick={handleMenuToggle}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+        >
           <MenuToggle isOpen={menuOpen} />
         </button>
       </div>
 
-      {/* MOBILE MENU SHOWS WHEN MENUOPEN TRUTHY */}
-
+      {/* MOBILE MENU */}
       {menuOpen && (
-        <div className='md:hidden fixed inset-0 z-[8999] bg-zinc-200 text-zinc-900 '>
-          <nav className='flex flex-col justify-start h-full w-full'>
-            {/* PROJECTS DROPDOWN */}
-            <div>
-              <button
-                onClick={handleDropdown}
-                aria-expanded={projectsExpanded}
-                className='w-full p-8  mt-32 flex justify-between items-center'
-              >
-                <span className='text-zinc-400 text-xl font-sans-alt'>01</span>
-
-                <div className='flex justify-center items-center gap-2'>
-                  <div>{projectsExpanded ? <ArrowUp /> : <ArrowDown />}</div>
-                  <span className='text-4xl font-medium'>Collections</span>
-                </div>
-              </button>
-
-              {/* SUBPAGES */}
-              <div
-                className={`
-                  grid transition-all duration-300 ease-in-out
-                  ${projectsExpanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}
-                `}
-              >
-                <div className='overflow-hidden'>
-                  <div className='flex flex-col gap-3 px-8 py-4 items-end text-2xl font-medium'>
-                    <Link
-                      href='/collections'
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Continents
-                    </Link>
-
-                    <Link href='/gallery' onClick={() => setMenuOpen(false)}>
-                      Gallery
-                    </Link>
-
-                    <Link
-                      href='/collections/other'
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Other Projects
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* OTHER NAVIGATION LINKS */}
-            <Link
-              className='px-8 py-8 flex justify-between items-center'
-              href='/gallery'
-              onClick={() => setMenuOpen(false)}
-            >
-              <span className='text-zinc-400 text-xl font-sans-alt'>02</span>
-              <span className='text-4xl font-medium'>Gallery</span>
-            </Link>
-
+        <div className='md:hidden fixed inset-0 z-[8999] bg-zinc-200 text-zinc-900'>
+          <nav className='flex flex-col justify-end h-full w-full'>
             <Link
               className='px-8 py-8 flex justify-between items-center'
               href='/collections'
               onClick={() => setMenuOpen(false)}
             >
+              <span className='text-zinc-400 text-xl font-sans-alt'>01</span>
+              <span className='text-4xl font-medium'>Collections</span>
+            </Link>
+
+            <Link
+              className='px-8 py-8 flex justify-between items-center'
+              href='/continents'
+              onClick={() => setMenuOpen(false)}
+            >
+              <span className='text-zinc-400 text-xl font-sans-alt'>02</span>
+              <span className='text-4xl font-medium'>Continents</span>
+            </Link>
+
+            <Link
+              className='px-8 py-8 flex justify-between items-center'
+              href='/gallery'
+              onClick={() => setMenuOpen(false)}
+            >
               <span className='text-zinc-400 text-xl font-sans-alt'>03</span>
-              <span className='text-4xl font-medium'>Shop </span>
+              <span className='text-4xl font-medium'>Gallery</span>
+            </Link>
+
+            <Link
+              className='px-8 py-8 flex justify-between items-center'
+              href='/shop'
+              onClick={() => setMenuOpen(false)}
+            >
+              <span className='text-zinc-400 text-xl font-sans-alt'>04</span>
+              <span className='text-4xl font-medium'>Shop</span>
             </Link>
 
             <Link
@@ -230,7 +232,7 @@ export default function Header() {
               href='/about'
               onClick={() => setMenuOpen(false)}
             >
-              <span className='text-zinc-400 text-xl font-sans-alt'>04</span>
+              <span className='text-zinc-400 text-xl font-sans-alt'>05</span>
               <span className='text-4xl font-medium'>About</span>
             </Link>
 
@@ -239,13 +241,17 @@ export default function Header() {
               href='/contact'
               onClick={() => setMenuOpen(false)}
             >
-              <span className='text-zinc-400 text-xl font-sans-alt'>05</span>
+              <span className='text-zinc-400 text-xl font-sans-alt'>06</span>
               <span className='text-4xl font-medium'>Contact</span>
             </Link>
 
             <div className='flex flex-col gap-2 w-full justify-center items-center mb-24 mt-12 text-base font-sans-alt'>
-              <Link href='/impressum'>Impressum</Link>
-              <Link href='/privacy'>Privacy</Link>
+              <Link href='/impressum' onClick={() => setMenuOpen(false)}>
+                Impressum
+              </Link>
+              <Link href='/privacy' onClick={() => setMenuOpen(false)}>
+                Privacy
+              </Link>
             </div>
           </nav>
         </div>

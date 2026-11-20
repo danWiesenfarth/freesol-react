@@ -12,12 +12,14 @@ interface MenuProps {
   }[];
   buttonVisible?: boolean;
   buttonLabel?: string;
+  buttonLink?: string;
 }
 
 export default function ProjectMenu({
   content = [],
   buttonVisible = true,
   buttonLabel = 'View All',
+  buttonLink = '/collections',
 }: MenuProps) {
   const { scrolled } = useScroll();
 
@@ -73,7 +75,7 @@ export default function ProjectMenu({
         {buttonVisible && (
           <Link
             className='mt-4 ml-auto py-2 px-4 font-medium hover:bg-zinc-100 rounded hover:text-zinc-800'
-            href='/collections'
+            href={buttonLink}
           >
             {buttonLabel}
           </Link>
