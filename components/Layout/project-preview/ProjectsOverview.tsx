@@ -136,7 +136,11 @@ export default function ProjectsOverview({ content }: ProjectsOverviewProps) {
   if (totalProjects === 0) return null;
 
   return (
-    <section className='flex w-full flex-col items-center overflow-hidden'>
+    <section className='flex w-full flex-col items-center overflow-hidden mt-6 lg:px-6 2xl:px-16'>
+      <div className='h-px w-full bg-zinc-200 my-4'></div>
+      <h2 className='text-3xl mb-4 font-semibold text-zinc-900 mr-auto'>
+        Discover more of our work
+      </h2>
       <div
         className='w-full overflow-hidden'
         onTouchStart={handleTouchStart}
@@ -166,7 +170,7 @@ export default function ProjectsOverview({ content }: ProjectsOverviewProps) {
         </div>
       </div>
 
-      <div className='my-8 flex max-w-3xl gap-4 items-center justify-between px-6'>
+      <div className='my-8 flex max-w-4xl gap-4 items-center justify-between px-2'>
         <button
           type='button'
           onClick={() => navigate(-1)}

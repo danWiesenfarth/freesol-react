@@ -244,7 +244,7 @@ export const africaPhotos: PhotoProps[] = [
     spanRow: 4,
   },
   {
-    src: '/images/africa/anna_sossusvlei.jpg',
+    src: '/images/africa/trump.jpg',
     alt: 'Portrait in the Sossusvlei desert',
     title: 'Sossusvlei II',
     location: 'Sossusvlei, Namibia',

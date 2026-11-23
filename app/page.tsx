@@ -61,12 +61,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='w-full px-4 lg:px-10 my-6'>
-        <h2 className='text-3xl mb-4 font-semibold text-zinc-900'>
-          Discover more of our work
-        </h2>
-        <ProjectsOverview content={continentsData} />
-      </section>
+      <ProjectsOverview content={continentsData} />
     </main>
   );
 }

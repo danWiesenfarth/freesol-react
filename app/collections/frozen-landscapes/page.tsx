@@ -7,16 +7,12 @@ import { continentsData } from '@/data/continents/continents.data';
 
 export default function FrozenLandscapes() {
   return (
-    <main className='flex flex-col flex-1 items-center justify-start bg-zinc-50 font-sans'>
+    <main className='w-full min-h-screen bg-zinc-50 font-sans'>
+      {/* Full-width Hero */}
       <Hero heroContent={heroContent.frozenLandscapes} />
-      <section className='mt-10 text-sky-900 w-full px-4 lg:px-10 '>
-        <div className='flex flex-col gap-1'>
-          <div className='text-xl uppercase font-semibold flex flex-col gap-2 items-center md:flex-row'>
-            <span className='font-sans-alt'>The</span>
-            <h2 className='text-sky-800 text-4xl'>FROZEN LANDSCAPES</h2>
-            <span className='font-sans-alt'>Collection</span>
-            <div />
-          </div>
+
+      <div className='w-full max-w-[1920px] mx-auto flex flex-col items-center'>
+        <section className='mt-10 w-full px-4 lg:px-10 2xl:px-16'>
           <p className='font-sans-alt font-medium leading-tight text-xl text-zinc-500 max-w-[55ch] text-pretty'>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -28,16 +24,12 @@ export default function FrozenLandscapes() {
             accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
             no sea takimata sanctus est Lorem ipsum dolor sit amet.
           </p>
-        </div>
-        <PhotoGrid photos={frozenLandscapes} />
-        <div className='h-px w-full bg-zinc-200 mt-8'></div>
-      </section>
-      <section className='w-full px-4 lg:px-10 my-6'>
-        <h2 className='text-3xl mb-4 font-semibold text-zinc-900'>
-          Discover more of our work
-        </h2>
+
+          <PhotoGrid photos={frozenLandscapes} />
+        </section>
+
         <ProjectsOverview content={continentsData} />
-      </section>
+      </div>
     </main>
   );
 }

@@ -53,6 +53,28 @@ export const heroContent = {
     showLogo: true,
   },
 
+  america: {
+    title: 'America',
+    subtitle: 'America',
+    description: 'America',
+    media: {
+      type: 'image',
+      src: '/images/america/amazonas5.jpg',
+      alt: 'Snow-covered Antarctic landscape',
+    },
+  },
+
+  asia: {
+    title: 'Asia',
+    subtitle: 'Asia',
+    description: 'Asia',
+    media: {
+      type: 'image',
+      src: '/images/asia/biglagoon4.jpg',
+      alt: 'Snow-covered Antarctic landscape',
+    },
+  },
+
   frozenLandscapes: {
     title: 'Frozen Landscapes',
     subtitle: 'Antarctica',

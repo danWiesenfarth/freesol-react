@@ -29,4 +29,18 @@ export const collectionsData: PhotoProjectPreview[] = [
       },
     },
   },
+  {
+    title: 'Savannah Wildlife',
+    description: 'Deserts to lush forests',
+    thumbnail: '/images/africa/cheetah.jpg',
+    alt: 'a male lion',
+    src: '/collections/savannah-wildlife/',
+    imageSettings: {
+      focalPoint: {
+        desktop: '20% 40%',
+        tablet: '20% 10%',
+        mobile: '20% 35%',
+      },
+    },
+  },
 ];

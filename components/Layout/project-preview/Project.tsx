@@ -13,7 +13,7 @@ export default function Project({
 }: PhotoProjectPreview) {
   return (
     <Link href={src} className='group block px-2'>
-      <div className='relative aspect-[4/5] overflow-hidden'>
+      <div className='relative aspect-[4/5] overflow-hidden rounded'>
         <MediaImage
           src={thumbnail}
           alt={alt}
@@ -24,8 +24,8 @@ export default function Project({
       </div>
 
       <div className='mt-4'>
-        <h2 className='text-3xl'>{title}</h2>
-        <p>{description}</p>
+        <h2 className='text-3xl font-medium'>{title}</h2>
+        <p className='font-sans-alt font-medium text-zinc-500'>{description}</p>
       </div>
     </Link>
   );

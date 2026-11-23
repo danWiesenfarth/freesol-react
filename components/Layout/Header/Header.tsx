@@ -77,7 +77,7 @@ export default function Header() {
           ${headerColor}
           ${
             scrolled
-              ? 'top-5 w-[92vw] rounded-lg bg-zinc-100 shadow-sm px-8'
+              ? 'top-5 w-[95vw] rounded-lg bg-zinc-100 shadow-sm px-8'
               : 'top-0 bg-transparent pt-6 w-screen px-8 lg:px-12'
           }
         `}

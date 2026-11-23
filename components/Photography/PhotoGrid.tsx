@@ -17,7 +17,7 @@ export default function PhotoGrid({ photos, className = '' }: PhotoGridProps) {
     <>
       <section
         className={`
-          mx-auto my-8 grid
+          w-full my-8 grid
           grid-cols-12 auto-rows-[160px] gap-3
           max-[1024px]:grid-cols-6
           max-[1024px]:auto-rows-[120px]
