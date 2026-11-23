@@ -60,7 +60,7 @@ export const continentsData: PhotoProjectPreview[] = [
   {
     title: 'Asia',
     description: 'Deserts to lush forests',
-    thumbnail: '/images/asia/sevencommandos.jpg',
+    thumbnail: '/images/asia/biglagoon4.jpg',
     alt: 'a male lion',
     src: '/continents/asia',
     imageSettings: {
@@ -74,7 +74,7 @@ export const continentsData: PhotoProjectPreview[] = [
   {
     title: 'Europe',
     description: 'Deserts to lush forests',
-    thumbnail: '/images/europe/SeaofClouds.jpg',
+    thumbnail: '/images/europe/SeaOfClouds.jpg',
     alt: 'a male lion',
     src: '/continents/europe',
     imageSettings: {

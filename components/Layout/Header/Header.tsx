@@ -80,7 +80,6 @@ export default function Header() {
               ? 'top-5 w-[92vw] rounded-lg bg-zinc-100 shadow-sm px-8'
               : 'top-0 bg-transparent pt-6 w-screen px-8 lg:px-12'
           }
-
         `}
       >
         <div className='flex gap-4 items-center'>
@@ -183,6 +182,7 @@ export default function Header() {
         </Link>
 
         <button
+          type='button'
           onClick={handleMenuToggle}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
@@ -193,10 +193,22 @@ export default function Header() {
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div className='md:hidden fixed inset-0 z-[8999] bg-zinc-200 text-zinc-900'>
-          <nav className='flex flex-col justify-end h-full w-full'>
+        <div
+          className='
+            md:hidden fixed inset-0 z-[8999]
+            h-dvh overflow-y-auto overscroll-contain
+            bg-zinc-200 text-zinc-900
+          '
+        >
+          <nav
+            className='
+              flex min-h-full flex-col justify-end
+              w-full pt-24
+              pb-[calc(6rem+env(safe-area-inset-bottom))]
+            '
+          >
             <Link
-              className='px-8 py-8 flex justify-between items-center'
+              className='shrink-0 px-8 py-8 flex justify-between items-center'
               href='/collections'
               onClick={() => setMenuOpen(false)}
             >
@@ -205,7 +217,7 @@ export default function Header() {
             </Link>
 
             <Link
-              className='px-8 py-8 flex justify-between items-center'
+              className='shrink-0 px-8 py-8 flex justify-between items-center'
               href='/continents'
               onClick={() => setMenuOpen(false)}
             >
@@ -214,7 +226,7 @@ export default function Header() {
             </Link>
 
             <Link
-              className='px-8 py-8 flex justify-between items-center'
+              className='shrink-0 px-8 py-8 flex justify-between items-center'
               href='/gallery'
               onClick={() => setMenuOpen(false)}
             >
@@ -223,7 +235,7 @@ export default function Header() {
             </Link>
 
             <Link
-              className='px-8 py-8 flex justify-between items-center'
+              className='shrink-0 px-8 py-8 flex justify-between items-center'
               href='/shop'
               onClick={() => setMenuOpen(false)}
             >
@@ -232,7 +244,7 @@ export default function Header() {
             </Link>
 
             <Link
-              className='px-8 py-8 flex justify-between items-center'
+              className='shrink-0 px-8 py-8 flex justify-between items-center'
               href='/about'
               onClick={() => setMenuOpen(false)}
             >
@@ -241,7 +253,7 @@ export default function Header() {
             </Link>
 
             <Link
-              className='px-8 py-8 flex justify-between items-center'
+              className='shrink-0 px-8 py-8 flex justify-between items-center'
               href='/contact'
               onClick={() => setMenuOpen(false)}
             >
@@ -249,7 +261,7 @@ export default function Header() {
               <span className='text-4xl font-medium'>Contact</span>
             </Link>
 
-            <div className='flex flex-col gap-2 w-full justify-center items-center mb-24 mt-12 text-base font-sans-alt'>
+            <div className='flex flex-col gap-2 w-full justify-center items-center mt-12 text-base font-sans-alt'>
               <Link href='/impressum' onClick={() => setMenuOpen(false)}>
                 Impressum
               </Link>

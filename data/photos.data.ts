@@ -41,6 +41,13 @@ export const latestCollection: PhotoProps[] = [
     location: 'Antarctica',
     spanCol: 4,
     spanRow: 3,
+    imageSettings: {
+      focalPoint: {
+        desktop: '10% 40%',
+        tablet: '10% 10%',
+        mobile: '10% 35%',
+      },
+    },
   },
   {
     src: '/images/antarctica/dw_brown_1.jpg',

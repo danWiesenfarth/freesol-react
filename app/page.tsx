@@ -10,6 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { heroContent } from '@/data/pages.data';
 import { continentsData } from '@/data/continents/continents.data';
+import ChevronRight from '@/components/UI/ChevronRight';
 
 export default function Home() {
   return (
@@ -30,38 +31,36 @@ export default function Home() {
         <PhotoGrid photos={latestCollection} />
         <div className='h-px w-full bg-zinc-200 mt-8'></div>
       </section>
-      <section className='mt-10 text-zinc-800 w-full px-4 lg:px-10'>
-        <h2 className='text-3xl uppercase font-semibold'>
-          Immersive 3D Exhibition
-        </h2>
-        <p className='font-sans-alt font-medium text-base text-zinc-500 max-w-[55ch] text-pretty'>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet.
-        </p>
-      </section>
-      <section className='relative w-full my-6 h-[90vh] overflow-hidden'>
-        <Image
-          fill
-          className='object-cover'
-          src='/images/renders/Savannah_2.png'
-          alt='Lion'
-        />
-
-        {/* Gradient overlay */}
-        <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent' />
-
-        {/* Heading */}
-        <div className='absolute inset-0 flex items-end justify-center pb-16'>
-          <Link href='gallery'>
-            <button className='bg-zinc-200 rounded-xl flex justify-center items-center py-2 px-12 text-xl font-semibold text-zinc-900  text-center cursor-pointer hover:border-r-4 hover:border-b-4 border-sky-800'>
-              Enter The Exhibition
+      <section className='mt-10 text-zinc-800 w-full px-4 lg:px-10 flex flex-col lg:flex-row justify-between gap-4'>
+        <div>
+          <h2 className='text-3xl uppercase font-semibold'>
+            Immersive 3D Exhibition
+          </h2>
+          <p className='font-sans-alt font-medium text-base text-zinc-500 max-w-[55ch] text-pretty'>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+            Lorem ipsum dolor sit amet.
+          </p>
+          <Link href='/'>
+            <button className='  px-6 py-3 bg-zinc-900 text-zinc-50 mt-4 rounded font-sans-alt font-bold cursor-pointer flex items-center gap-2 hover:scale-105 transition-all 300ms hover:bg-amber-500 hover:text-zinc-900 hover:border-r-4 hover:border-b-4'>
+              <span> Take Me to the Art Gallery</span>
+              <ChevronRight />
             </button>
           </Link>
         </div>
+        <div className='relative w-full lg:flex-1 min-w-0 aspect-[2/3] max-h-[700px] lg:aspect-[4/3] lg:max-h-none overflow-hidden'>
+          <Image
+            fill
+            src='/images/renders/Savannah_2.png'
+            alt='Lion'
+            className='object-cover'
+            sizes='(max-width: 1023px) 100vw, 50vw'
+          />
+        </div>
       </section>
+
       <section className='w-full px-4 lg:px-10 my-6'>
         <h2 className='text-3xl mb-4 font-semibold text-zinc-900'>
           Discover more of our work
