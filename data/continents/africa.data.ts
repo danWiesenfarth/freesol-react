@@ -48,8 +48,8 @@ export const africaPhotos: PhotoProps[] = [
     spanRow: 4,
   },
   {
-    src: '/images/africa/eagle_lodge.jpg',
-    alt: 'Eagle Lodge surrounded by African wilderness',
+    src: '/images/africa/capetown-devilspeak.jpg',
+    alt: 'View of Devil Peak Mountain, Cape Town, South Africa',
     title: 'Eagle Lodge',
     location: 'South Africa',
     spanCol: 4,
@@ -94,11 +94,19 @@ export const africaPhotos: PhotoProps[] = [
     },
   },
   {
+    src: '/images/africa/simonstown-penguin.jpg',
+    alt: 'Open road crossing the African landscape',
+    title: 'The Road',
+    location: 'Namibia',
+    spanCol: 8,
+    spanRow: 4,
+  },
+  {
     src: '/images/africa/catamaran1.jpg',
     alt: 'Catamaran sailing across turquoise waters',
     title: 'Island Drift',
     location: 'Seychelles',
-    spanCol: 12,
+    spanCol: 4,
     spanRow: 4,
   },
   {
@@ -155,14 +163,7 @@ export const africaPhotos: PhotoProps[] = [
     spanCol: 4,
     spanRow: 4,
   },
-  {
-    src: '/images/africa/seychelles_heli_1.jpg',
-    alt: 'Aerial view of the Seychelles islands',
-    title: 'From Above',
-    location: 'Seychelles',
-    spanCol: 8,
-    spanRow: 4,
-  },
+
   {
     src: '/images/africa/kolman5.jpg',
     alt: 'Abandoned buildings in the Kolmanskop ghost town',
@@ -176,9 +177,18 @@ export const africaPhotos: PhotoProps[] = [
     alt: 'Swimming pool at Gondwana village',
     title: 'Gondwana',
     location: 'South Africa',
+    spanCol: 8,
+    spanRow: 4,
+  },
+  {
+    src: '/images/africa/seychelles_heli_1.jpg',
+    alt: 'Aerial view of the Seychelles islands',
+    title: 'From Above',
+    location: 'Seychelles',
     spanCol: 4,
     spanRow: 4,
   },
+
   {
     src: '/images/africa/turtle1.jpg',
     alt: 'Sea turtle swimming underwater',
@@ -211,6 +221,7 @@ export const africaPhotos: PhotoProps[] = [
     spanCol: 6,
     spanRow: 4,
   },
+
   {
     src: '/images/africa/cat_mauritius.jpg',
     alt: 'Cat on the island of Mauritius',

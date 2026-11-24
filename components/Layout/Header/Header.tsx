@@ -196,7 +196,7 @@ export default function Header() {
         <div
           className='
             md:hidden fixed inset-0 z-[8999]
-            h-dvh overflow-y-auto overscroll-contain
+            h-dvh overflow-y-hidden overscroll-contain
             bg-zinc-200 text-zinc-900
           '
         >

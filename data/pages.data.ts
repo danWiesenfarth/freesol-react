@@ -166,8 +166,8 @@ export const heroContent = {
     subtitle: '',
     description: 'From the deserts of Nambia to the beaches of the Seychelles',
     media: {
-      type: 'image',
-      src: '/images/africa/tk_cape_town_1.jpg',
+      type: 'video',
+      src: '/video/africa-hero.mp4',
     },
   },
 } as const satisfies Record<string, HeroContent>;
