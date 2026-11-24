@@ -9,7 +9,7 @@ import Layout from '@/components/Layout/Layout';
 export default function ArcticPage() {
   return (
     <main>
-      <Hero heroContent={heroContent.america} />
+      <Hero heroContent={heroContent.arctic} />
       <Layout>
         <PhotoGrid photos={americaPhotos} />
         <ProjectsOverview content={collectionsData} />

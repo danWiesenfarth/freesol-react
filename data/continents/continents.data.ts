@@ -4,14 +4,14 @@ export const continentsData: PhotoProjectPreview[] = [
   {
     title: 'Africa',
     description: 'Deserts to lush forests',
-    thumbnail: '/images/africa/male_lion_2.jpg',
+    thumbnail: '/images/africa/tk_cape_town_1.jpg',
     alt: 'a male lion',
     src: '/continents/africa',
     imageSettings: {
       focalPoint: {
-        desktop: '80% 40%',
+        desktop: '50% 40%',
         tablet: '50% 10%',
-        mobile: '60% 35%',
+        mobile: '50% 35%',
       },
     },
   },
@@ -53,7 +53,7 @@ export const continentsData: PhotoProjectPreview[] = [
       focalPoint: {
         desktop: '50% 50%',
         tablet: '50% 50%',
-        mobile: '50% 50%',
+        mobile: '20% 50%',
       },
     },
   },

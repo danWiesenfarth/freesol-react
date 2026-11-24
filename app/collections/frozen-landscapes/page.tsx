@@ -4,15 +4,14 @@ import Hero from '@/components/Layout/landing-page/Hero';
 import { heroContent } from '@/data/pages.data';
 import ProjectsOverview from '@/components/Layout/project-preview/ProjectsOverview';
 import { continentsData } from '@/data/continents/continents.data';
+import Layout from '@/components/Layout/Layout';
 
 export default function FrozenLandscapes() {
   return (
     <main className='w-full min-h-screen bg-zinc-50 font-sans'>
-      {/* Full-width Hero */}
       <Hero heroContent={heroContent.frozenLandscapes} />
-
-      <div className='w-full max-w-[1920px] mx-auto flex flex-col items-center'>
-        <section className='mt-10 w-full px-4 lg:px-10 2xl:px-16'>
+      <Layout>
+        <section className='mt-10 w-full'>
           <p className='font-sans-alt font-medium leading-tight text-xl text-zinc-500 max-w-[55ch] text-pretty'>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -29,7 +28,7 @@ export default function FrozenLandscapes() {
         </section>
 
         <ProjectsOverview content={continentsData} />
-      </div>
+      </Layout>
     </main>
   );
 }

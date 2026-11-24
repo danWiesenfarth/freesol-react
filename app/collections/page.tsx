@@ -1,3 +1,4 @@
+import Layout from '@/components/Layout/Layout';
 import ProjectsOverview from '@/components/Layout/project-preview/ProjectsOverview';
 import ChevronLeft from '@/components/UI/ChevronLeft';
 import { collectionsData } from '@/data/collections/collection.data';
@@ -8,7 +9,7 @@ import Link from 'next/link';
 export default function CollectionsPage() {
   return (
     <main className='  flex flex-col items-center'>
-      <section className='w-full px-4 lg:px-10'>
+      <Layout>
         <div className=' mt-24 md:mt-36 flex gap-4 items-center'>
           <Link
             href='/'
@@ -52,8 +53,8 @@ export default function CollectionsPage() {
             </li>
           ))}
         </ol>
-      </section>
-      <ProjectsOverview content={continentsData} />
+        <ProjectsOverview content={continentsData} />
+      </Layout>
     </main>
   );
 }

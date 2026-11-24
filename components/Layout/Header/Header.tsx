@@ -78,7 +78,7 @@ export default function Header() {
           ${
             scrolled
               ? 'top-5 w-[95vw] rounded-lg bg-zinc-100 shadow-sm px-8'
-              : 'top-0 bg-transparent pt-6 w-screen px-8 lg:px-12'
+              : 'top-0  bg-linear-0 from-black/0 to-black/60  pt-6 w-screen px-8 lg:px-12'
           }
         `}
       >
@@ -261,7 +261,7 @@ export default function Header() {
               <span className='text-4xl font-medium'>Contact</span>
             </Link>
 
-            <div className='flex flex-col gap-2 w-full justify-center items-center mt-12 text-base font-sans-alt'>
+            <div className='flex gap-4 w-full justify-center items-center mt-12 text-base font-sans-alt'>
               <Link href='/impressum' onClick={() => setMenuOpen(false)}>
                 Impressum
               </Link>

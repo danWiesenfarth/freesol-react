@@ -136,8 +136,8 @@ export default function ProjectsOverview({ content }: ProjectsOverviewProps) {
   if (totalProjects === 0) return null;
 
   return (
-    <section className='flex w-full flex-col items-center overflow-hidden mt-6 lg:px-6 2xl:px-16'>
-      <div className='h-px w-full bg-zinc-200 my-4'></div>
+    <section className='flex w-full flex-col items-center overflow-hidden'>
+      <div className='h-px w-full bg-zinc-200 mt-8 mb-4'></div>
       <h2 className='text-3xl mb-4 font-semibold text-zinc-900 mr-auto'>
         Discover more of our work
       </h2>

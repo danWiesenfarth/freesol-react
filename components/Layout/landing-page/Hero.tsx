@@ -13,9 +13,9 @@ export default function Hero({ heroContent }: HeroProps) {
   return (
     <section
       className={`
-        mx-auto h-[93vh] overflow-hidden relative
+        mx-auto h-[90vh] overflow-hidden relative
         transition-all duration-700 ease-in-out px-4 py-8
-        ${scrolled ? 'w-[95vw] rounded-2xl mt-10' : 'w-screen'}
+        ${scrolled ? 'w-[95vw] rounded-2xl mt-10' : 'w-full'}
       `}
     >
       {media.type === 'video' ? (
@@ -41,7 +41,7 @@ export default function Hero({ heroContent }: HeroProps) {
         />
       )}
 
-      <div className='absolute inset-0 bg-linear-0 from-black to-black/10' />
+      <div className='absolute inset-0 bg-linear-0 from-black/60 to-black/10' />
 
       <div className='relative z-10 flex h-full flex-col gap-2 justify-end lg:px-8 text-white'>
         {showLogo && (

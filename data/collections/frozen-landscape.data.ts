@@ -8,6 +8,13 @@ export const frozenLandscapes: PhotoProps[] = [
     location: 'Antarctica',
     spanCol: 12,
     spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '30% 50%',
+      },
+    },
   },
   {
     src: '/images/antarctica/tk_pingu_scholle_2.jpg',
@@ -16,6 +23,13 @@ export const frozenLandscapes: PhotoProps[] = [
     location: 'Antarctica',
     spanCol: 8,
     spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '20% 50%',
+      },
+    },
   },
   {
     src: '/images/antarctica/dw_epic_penguin_6.jpg',
@@ -24,6 +38,13 @@ export const frozenLandscapes: PhotoProps[] = [
     location: 'Antarctica',
     spanCol: 4,
     spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '10% 50%',
+      },
+    },
   },
   {
     src: '/images/antarctica/dw_Iceberg_1.jpg',
@@ -80,6 +101,13 @@ export const frozenLandscapes: PhotoProps[] = [
     location: 'Antarctica',
     spanCol: 4,
     spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 50%',
+        tablet: '50% 50%',
+        mobile: '20% 520%',
+      },
+    },
   },
   {
     src: '/images/antarctica/dw_base_3.jpg',
@@ -97,6 +125,13 @@ export const frozenLandscapes: PhotoProps[] = [
     location: 'Antarctica',
     spanCol: 6,
     spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '20% 50%',
+      },
+    },
   },
   {
     src: '/images/antarctica/tk_brown_1.jpg',
@@ -161,6 +196,13 @@ export const frozenLandscapes: PhotoProps[] = [
     location: 'Antarctica',
     spanCol: 4,
     spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '50% 50%',
+      },
+    },
   },
   {
     src: '/images/antarctica/tk_pfosten_1.jpg',
@@ -209,5 +251,12 @@ export const frozenLandscapes: PhotoProps[] = [
     location: 'Antarctica',
     spanCol: 8,
     spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '20% 50%',
+      },
+    },
   },
 ];

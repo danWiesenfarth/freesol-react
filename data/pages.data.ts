@@ -59,8 +59,41 @@ export const heroContent = {
     description: 'America',
     media: {
       type: 'image',
-      src: '/images/america/amazonas5.jpg',
+      src: '/images/america/mexico_road.jpg',
       alt: 'Snow-covered Antarctic landscape',
+    },
+  },
+  antarctica: {
+    title: 'Antarctica',
+    subtitle: 'Antarctica',
+    description: 'Antarctica',
+    media: {
+      type: 'image',
+      src: '/images/antarctica/Port_Lockroy.jpg',
+      alt: 'Snow-covered Antarctic landscape',
+      imageSettings: {
+        focalPoint: {
+          desktop: '50% 50%',
+          tablet: '50% 50%',
+          mobile: '10% 50%',
+        },
+      },
+    },
+  },
+  arctic: {
+    title: 'Arctic',
+    subtitle: 'Arctic',
+    description: 'Arctic',
+    media: {
+      type: 'image',
+      src: '/images/arctic/aurora_wallpaper.jpg',
+      alt: 'Snow-covered Antarctic landscape',
+      imageSettings: {
+        focalPoint: {
+          desktop: '50% 50%',
+          tablet: '60% 50%',
+        },
+      },
     },
   },
 
@@ -75,6 +108,28 @@ export const heroContent = {
     },
   },
 
+  europe: {
+    title: 'Europe',
+    subtitle: 'Europe',
+    description: 'Europe',
+    media: {
+      type: 'image',
+      src: '/images/europe/graubuenden_road.jpg',
+      alt: 'Winding roads in Graubünden, Switzerland',
+    },
+  },
+
+  oceania: {
+    title: 'Oceania',
+    subtitle: 'Oceania',
+    description: 'Oceania',
+    media: {
+      type: 'image',
+      src: '/images/oceania/tipanier_Sailboat.jpg',
+      alt: 'Winding roads in Graubünden, Switzerland',
+    },
+  },
+
   frozenLandscapes: {
     title: 'Frozen Landscapes',
     subtitle: 'Antarctica',
@@ -85,11 +140,34 @@ export const heroContent = {
       alt: 'Snow-covered Antarctic landscape',
     },
   },
-
-  africanAdventures: {
+  eyeInTheSky: {
+    title: 'Eye in the Sky',
+    subtitle: 'High Altitude, high reward',
+    description: 'Drone Shots from around the world',
     media: {
       type: 'image',
       src: '/images/africa/camps_bay3.jpg',
+      alt: 'Camps Bay beach in Cape Town, South Africa',
+    },
+  },
+  savannahWildlife: {
+    title: 'Savannah Wildlife',
+    subtitle: 'High Altitude, high reward',
+    description: 'Drone Shots from around the world',
+    media: {
+      type: 'image',
+      src: '/images/africa/camps_bay3.jpg',
+      alt: 'Camps Bay beach in Cape Town, South Africa',
+    },
+  },
+
+  africa: {
+    title: 'Africa',
+    subtitle: '',
+    description: 'From the deserts of Nambia to the beaches of the Seychelles',
+    media: {
+      type: 'image',
+      src: '/images/africa/tk_cape_town_1.jpg',
     },
   },
 } as const satisfies Record<string, HeroContent>;

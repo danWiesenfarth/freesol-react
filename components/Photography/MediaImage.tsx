@@ -18,24 +18,10 @@ export default function MediaImage({
   quality = 90,
   className = '',
 }: MediaImageProps) {
+  const focalPoint = settings?.focalPoint;
+
   return (
-    <div
-      className='relative h-full w-full'
-      style={
-        {
-          '--focal-desktop': settings?.focalPoint?.desktop ?? 'center',
-          '--focal-tablet':
-            settings?.focalPoint?.tablet ??
-            settings?.focalPoint?.desktop ??
-            'center',
-          '--focal-mobile':
-            settings?.focalPoint?.mobile ??
-            settings?.focalPoint?.tablet ??
-            settings?.focalPoint?.desktop ??
-            'center',
-        } as React.CSSProperties
-      }
-    >
+    <div className='relative h-full w-full'>
       <Image
         src={src}
         alt={alt}
@@ -43,6 +29,18 @@ export default function MediaImage({
         quality={quality}
         sizes={sizes}
         className={`media-image object-cover ${className}`}
+        style={
+          {
+            '--focal-desktop': focalPoint?.desktop ?? '50% 50%',
+            '--focal-tablet':
+              focalPoint?.tablet ?? focalPoint?.desktop ?? '50% 50%',
+            '--focal-mobile':
+              focalPoint?.mobile ??
+              focalPoint?.tablet ??
+              focalPoint?.desktop ??
+              '50% 50%',
+          } as React.CSSProperties
+        }
       />
     </div>
   );
