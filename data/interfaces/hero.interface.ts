@@ -11,6 +11,7 @@ export interface HeroContent {
     type: 'image' | 'video';
     src: string;
     alt?: string;
+    poster?: string;
     imageSettings?: ImageSettings;
   };
 }

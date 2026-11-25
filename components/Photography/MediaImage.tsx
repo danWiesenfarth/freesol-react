@@ -8,15 +8,17 @@ interface MediaImageProps {
   sizes?: string;
   quality?: number;
   className?: string;
+  priority?: boolean;
 }
 
 export default function MediaImage({
   src,
   alt,
   settings,
-  sizes = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw',
+  sizes = '100vw',
   quality = 90,
   className = '',
+  priority = false,
 }: MediaImageProps) {
   const focalPoint = settings?.focalPoint;
 
@@ -26,8 +28,9 @@ export default function MediaImage({
         src={src}
         alt={alt}
         fill
-        quality={quality}
         sizes={sizes}
+        quality={quality}
+        preload={priority}
         className={`media-image object-cover ${className}`}
         style={
           {

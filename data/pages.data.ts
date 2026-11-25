@@ -59,7 +59,7 @@ export const heroContent = {
     description: 'America',
     media: {
       type: 'image',
-      src: '/images/america/mexico_road.jpg',
+      src: '/images/america/amazonas5.jpg',
       alt: 'Snow-covered Antarctic landscape',
     },
   },
@@ -152,12 +152,19 @@ export const heroContent = {
   },
   savannahWildlife: {
     title: 'Savannah Wildlife',
-    subtitle: 'High Altitude, high reward',
-    description: 'Drone Shots from around the world',
+    subtitle: '',
+    description: 'Savannah Wildlife ',
     media: {
       type: 'image',
-      src: '/images/africa/camps_bay3.jpg',
+      src: '/images/africa/male_lion_2.jpg',
       alt: 'Camps Bay beach in Cape Town, South Africa',
+      imageSettings: {
+        focalPoint: {
+          desktop: '10% 50%',
+          tablet: '60% 50%',
+          mobile: '10% 10%',
+        },
+      },
     },
   },
 

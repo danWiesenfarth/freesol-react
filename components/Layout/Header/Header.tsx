@@ -78,7 +78,7 @@ export default function Header() {
           ${
             scrolled
               ? 'top-5 w-[95vw] rounded-lg bg-zinc-100 shadow-sm px-8'
-              : 'top-0  bg-linear-0 from-black/0 to-black/60  pt-6 w-screen px-8 lg:px-12'
+              : 'top-0  bg-transparent  pt-6 w-screen px-8 lg:px-12'
           }
         `}
       >
@@ -140,7 +140,12 @@ export default function Header() {
                   NEW
                 </span>
               )}
-              <Link href='/gallery'>Gallery</Link>
+              <Link
+                href='https://r3-f-artgallery-nu.vercel.app/'
+                target='_blank'
+              >
+                Gallery
+              </Link>
             </li>
 
             <li className={navLinkClasses}>
@@ -196,7 +201,7 @@ export default function Header() {
         <div
           className='
             md:hidden fixed inset-0 z-[8999]
-            h-dvh overflow-y-hidden overscroll-contain
+            h-dvh overflow-y-auto overscroll-contain
             bg-zinc-200 text-zinc-900
           '
         >
@@ -227,11 +232,17 @@ export default function Header() {
 
             <Link
               className='shrink-0 px-8 py-8 flex justify-between items-center'
-              href='/gallery'
+              href='https://r3-f-artgallery-nu.vercel.app/'
+              target='_blank'
               onClick={() => setMenuOpen(false)}
             >
               <span className='text-zinc-400 text-xl font-sans-alt'>03</span>
-              <span className='text-4xl font-medium'>Gallery</span>
+              <div className='flex gap-2 flex-row-reverse'>
+                <span className='text-4xl font-medium'>Gallery</span>
+                <div className=' flex justify-center items-center font-sans-alt bg-amber-500 py-1 px-2 text-[13px] font-bold text-zinc-900 rounded-4xl'>
+                  <span>NEW</span>
+                </div>
+              </div>
             </Link>
 
             <Link
@@ -260,15 +271,6 @@ export default function Header() {
               <span className='text-zinc-400 text-xl font-sans-alt'>06</span>
               <span className='text-4xl font-medium'>Contact</span>
             </Link>
-
-            <div className='flex gap-4 w-full justify-center items-center mt-12 text-base font-sans-alt'>
-              <Link href='/impressum' onClick={() => setMenuOpen(false)}>
-                Impressum
-              </Link>
-              <Link href='/privacy' onClick={() => setMenuOpen(false)}>
-                Privacy
-              </Link>
-            </div>
           </nav>
         </div>
       )}

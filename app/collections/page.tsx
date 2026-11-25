@@ -22,7 +22,7 @@ export default function CollectionsPage() {
           <div>
             <h1 className='text-4xl font-semibold'>Collections</h1>
             <span className='text-zinc-600 font-sans-alt hidden md:block'>
-              Explore by Destination
+              Explore by Collection
             </span>
           </div>
         </div>

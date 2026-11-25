@@ -41,7 +41,7 @@ export default function Hero({ heroContent }: HeroProps) {
         />
       )}
 
-      <div className='absolute inset-0 bg-linear-0 from-black/60 to-black/10' />
+      <div className='absolute inset-0 bg-linear-0 from-black to-black/10' />
 
       <div className='relative z-10 flex h-full flex-col gap-2 justify-end lg:px-8 text-white'>
         {showLogo && (
