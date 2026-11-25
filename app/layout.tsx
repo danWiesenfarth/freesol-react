@@ -5,6 +5,7 @@ import { neueRegrade, satoshi } from './fonts';
 import Header from '../components/Layout/Header/Header';
 import Footer from '@/components/Layout/Footer';
 import { ScrollProvider } from '../context/ScrollContext';
+import { CookieConsentProvider } from '@/context/CookieConsentContext';
 
 export const metadata: Metadata = {
   title: 'Freesol Creatives',
@@ -18,11 +19,13 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       className={`${neueRegrade.variable} ${satoshi.variable} h-full antialiased`}
     >
       <body className='min-h-full flex flex-col'>
-        <ScrollProvider>
-          <Header />
-          {children}
-          <Footer />
-        </ScrollProvider>
+        <CookieConsentProvider>
+          <ScrollProvider>
+            <Header />
+            {children}
+            <Footer />
+          </ScrollProvider>
+        </CookieConsentProvider>
       </body>
     </html>
   );

@@ -132,8 +132,8 @@ export const heroContent = {
 
   frozenLandscapes: {
     title: 'Frozen Landscapes',
-    subtitle: 'Antarctica',
-    description: 'A journey through the remote and frozen wilderness.',
+    subtitle: '',
+    description: 'Impressions from the most remote places on earth.',
     media: {
       type: 'image',
       src: '/images/antarctica/dw_snow_1.jpg',

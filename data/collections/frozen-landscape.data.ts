@@ -1,4 +1,13 @@
 import type { PhotoProps } from '@/data/interfaces/photo.interface';
+import type { ProjectMetadata } from '../interfaces/project.interface';
+
+export const frozenLandscapesMetadata = {
+  soundtrack: {
+    trackId: '0gsPInjPU6qsGGdLnpgTHD',
+    title: 'Melting',
+    artist: 'Danny Olson',
+  },
+} satisfies ProjectMetadata;
 
 export const frozenLandscapes: PhotoProps[] = [
   {

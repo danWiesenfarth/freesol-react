@@ -19,11 +19,7 @@ export default function SavannahWildlife() {
 
       <Layout>
         {savannahWildlifeMetadata.soundtrack && (
-          <Soundtrack
-            soundtrack={savannahWildlifeMetadata.soundtrack}
-            hasConsent={true}
-            onOpenConsentSettings={() => {}}
-          />
+          <Soundtrack soundtrack={savannahWildlifeMetadata.soundtrack} />
         )}
         <PhotoGrid photos={savannahWildlife} />
 

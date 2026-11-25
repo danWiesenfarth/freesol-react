@@ -1,36 +1,28 @@
+'use client';
+
 import type { Soundtrack as SoundtrackData } from '@/data/interfaces/project.interface';
+import { useCookieConsent } from '@/context/CookieConsentContext';
 
 interface SoundtrackProps {
   soundtrack: SoundtrackData;
-  hasConsent: boolean;
-  onOpenConsentSettings: () => void;
 }
 
-export default function Soundtrack({
-  soundtrack,
-  hasConsent,
-  onOpenConsentSettings,
-}: SoundtrackProps) {
+export default function Soundtrack({ soundtrack }: SoundtrackProps) {
   const { trackId, title, artist } = soundtrack;
+  const { consent, openSettings, hasConsent } = useCookieConsent();
 
   const validTrackId = /^[a-zA-Z0-9]{22}$/.test(trackId);
 
   if (!validTrackId) return null;
 
-  return (
-    <section className='w-full'>
-      <div className='mb-3'>
-        <span className='text-xs uppercase tracking-widest'>
-          Recommended soundtrack
-        </span>
-        <h3>{title}</h3>
-        <p>{artist}</p>
-      </div>
+  const hasExternalMediaConsent = consent?.externalMedia === true;
 
-      {hasConsent ? (
+  return (
+    <article className='w-full'>
+      {hasConsent && hasExternalMediaConsent ? (
         <iframe
           title={`Spotify player: ${title} by ${artist}`}
-          src={`https://open.spotify.com/embed/track/${trackId}?theme=0`}
+          src={`https://open.spotify.com/embed/track/${trackId}?theme=1`}
           width='100%'
           height='152'
           style={{ border: 0 }}
@@ -38,16 +30,20 @@ export default function Soundtrack({
           loading='lazy'
         />
       ) : (
-        <div className='rounded-xl border p-5'>
-          <p className='mb-3'>
-            Spotify content is disabled until you accept external media.
+        <div className='rounded-xl border border-zinc-200 p-5'>
+          <p className='mb-3 text-sm text-zinc-600'>
+            This Spotify player is disabled because external media hasn't been
+            enabled.
           </p>
 
-          <button onClick={onOpenConsentSettings}>
-            Manage cookie preferences
+          <button
+            onClick={openSettings}
+            className='text-sm underline underline-offset-4'
+          >
+            Manage privacy preferences
           </button>
         </div>
       )}
-    </section>
+    </article>
   );
 }
