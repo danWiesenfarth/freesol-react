@@ -19,7 +19,22 @@ export default function SavannahWildlife() {
 
       <Layout>
         {savannahWildlifeMetadata.soundtrack && (
-          <Soundtrack soundtrack={savannahWildlifeMetadata.soundtrack} />
+          <div className='flex flex-col md:flex-row gap-2'>
+            <div className='flex-1 mb-4 '>
+              <h2 className='text-3xl uppercase font-semibold mb-2'>
+                Subtitle
+              </h2>
+              <div className='text-lg leading-tight font-medium font-sans-alt text-zinc-700 max-w-[50ch] text-pretty'>
+                Introduction
+              </div>
+            </div>
+            <div className='flex-1'>
+              <span className='text-lg uppercase tracking-widest text-zinc-500'>
+                Recommended soundtrack
+              </span>
+              <Soundtrack soundtrack={savannahWildlifeMetadata.soundtrack} />
+            </div>
+          </div>
         )}
         <PhotoGrid photos={savannahWildlife} />
 

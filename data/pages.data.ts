@@ -156,7 +156,7 @@ export const heroContent = {
     description: 'Savannah Wildlife ',
     media: {
       type: 'image',
-      src: '/images/africa/male_lion_2.jpg',
+      src: '/images/africa/male_lion_3.jpg',
       alt: 'Camps Bay beach in Cape Town, South Africa',
       imageSettings: {
         focalPoint: {

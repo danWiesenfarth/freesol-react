@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { CookieConsent } from '@/context/CookieConsentContext';
 
 interface CookieConsentDialogProps {
@@ -20,35 +20,32 @@ export default function CookieConsentDialog({
   onRejectOptional,
   onClose,
 }: CookieConsentDialogProps) {
-  const [analytics, setAnalytics] = useState(false);
-  const [externalMedia, setExternalMedia] = useState(false);
-
-  useEffect(() => {
-    setExternalMedia(consent?.externalMedia ?? false);
-  }, [consent, isOpen]);
+  const [externalMedia, setExternalMedia] = useState(
+    consent?.externalMedia ?? false,
+  );
 
   if (!isOpen) return null;
 
   return (
-    <div className='fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4'>
+    <div className='fixed inset-0 z-100 flex items-center justify-center bg-black/50 p-4'>
       <section
         role='dialog'
         aria-modal='true'
         aria-labelledby='cookie-consent-title'
         className='w-full max-w-lg rounded-2xl bg-white p-6 text-zinc-900 shadow-2xl'
       >
-        <p className='mb-2 text-xs uppercase tracking-[0.2em] text-zinc-900'>
+        <p className='mb-2 text-base uppercase tracking-[0.2em] text-zinc-900'>
           Freesol Creatives
         </p>
 
         <h2 id='cookie-consent-title' className='mb-3 text-2xl'>
-          Let's take care of the legal stuff first.
+          Let&apos;s take care of the legal stuff first.
         </h2>
 
-        <p className='mb-6 text-sm leading-relaxed text-zinc-600'>
+        <p className='mb-6 text-sm leading-relaxed text-zinc-600 font-sans-alt'>
           We use necessary storage to make this website work. With your
-          permission, we can also load analytics and external media such as
-          Spotify.
+          permission, we can also load a spotify player, recommending songs that
+          go along with our hand picked collections.
         </p>
 
         <div className='divide-y divide-zinc-200 border-y border-zinc-200'>
@@ -97,14 +94,14 @@ export default function CookieConsentDialog({
                 externalMedia,
               })
             }
-            className='rounded-full border border-zinc-300 px-5 py-3 text-sm font-medium transition hover:bg-zinc-100'
+            className='rounded-full bg-zinc-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-zinc-700'
           >
             Save preferences
           </button>
 
           <button
             onClick={onRejectOptional}
-            className='rounded-full px-5 py-3 text-sm text-zinc-600 transition hover:bg-zinc-100'
+            className='rounded-full bg-zinc-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-zinc-700'
           >
             Reject optional
           </button>

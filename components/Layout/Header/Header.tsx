@@ -60,25 +60,20 @@ export default function Header() {
     };
   }, [menuOpen]);
 
-  // Close the mobile menu when navigating to another route.
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
-
   return (
     <header>
       {/* DESKTOP HEADER */}
       <div
         className={`
           hidden md:flex justify-between left-1/2 items-center
-          fixed z-[9000] h-22 -translate-x-1/2
-          transition-all duration-500 ease-in-out
+          fixed z-9000 h-22 -translate-x-1/2
+          transition-all duration-500 ease-in-out right-20
           ${visibilityClasses}
           ${headerColor}
           ${
             scrolled
               ? 'top-5 w-[95vw] rounded-lg bg-zinc-100 shadow-sm px-8'
-              : 'top-0  bg-transparent  pt-6 w-screen px-8 lg:px-12'
+              : 'top-0 bg-transparent pt-6 w-screen px-8 lg:px-12'
           }
         `}
       >
@@ -94,7 +89,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav>
+        <nav className='mr-36'>
           <ol className='flex gap-6 text-xl font-medium'>
             <li className='relative group'>
               <div className={navLinkClasses}>Collections</div>
@@ -155,10 +150,6 @@ export default function Header() {
             <li className={navLinkClasses}>
               <Link href='/about'>About</Link>
             </li>
-
-            <li className={navLinkClasses}>
-              <Link href='/contact'>Contact</Link>
-            </li>
           </ol>
         </nav>
       </div>
@@ -166,7 +157,7 @@ export default function Header() {
       {/* MOBILE HEADER */}
       <div
         className={`
-          md:hidden fixed z-[9000] left-1/2 top-3
+          md:hidden fixed z-9000 left-1/2 top-3
           flex justify-between items-center
           -translate-x-1/2 rounded-md py-2
           transition-all duration-500 ease-in-out
@@ -200,7 +191,7 @@ export default function Header() {
       {menuOpen && (
         <div
           className='
-            md:hidden fixed inset-0 z-[8999]
+            md:hidden fixed inset-0 z-8999
             h-dvh overflow-y-auto overscroll-contain
             bg-zinc-200 text-zinc-900
           '
@@ -239,7 +230,7 @@ export default function Header() {
               <span className='text-zinc-400 text-xl font-sans-alt'>03</span>
               <div className='flex gap-2 flex-row-reverse'>
                 <span className='text-4xl font-medium'>Gallery</span>
-                <div className=' flex justify-center items-center font-sans-alt bg-amber-500 py-1 px-2 text-[13px] font-bold text-zinc-900 rounded-4xl'>
+                <div className='flex justify-center items-center font-sans-alt bg-amber-500 py-1 px-2 text-[13px] font-bold text-zinc-900 rounded-4xl'>
                   <span>NEW</span>
                 </div>
               </div>
@@ -261,15 +252,6 @@ export default function Header() {
             >
               <span className='text-zinc-400 text-xl font-sans-alt'>05</span>
               <span className='text-4xl font-medium'>About</span>
-            </Link>
-
-            <Link
-              className='shrink-0 px-8 py-8 flex justify-between items-center'
-              href='/contact'
-              onClick={() => setMenuOpen(false)}
-            >
-              <span className='text-zinc-400 text-xl font-sans-alt'>06</span>
-              <span className='text-4xl font-medium'>Contact</span>
             </Link>
           </nav>
         </div>

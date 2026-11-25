@@ -70,4 +70,140 @@ export const savannahWildlife: PhotoProps[] = [
       },
     },
   },
+
+  {
+    src: '/images/africa/bushmcdonalds.jpg',
+    alt: 'Port Lockroy, Antarctica',
+    title: 'Port Lockroy',
+    location: 'Antarctica',
+    spanCol: 4,
+    spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '50% 50%',
+      },
+    },
+  },
+  {
+    src: '/images/africa/krueger_elephant.jpg',
+    alt: 'Port Lockroy, Antarctica',
+    title: 'Port Lockroy',
+    location: 'Antarctica',
+    spanCol: 8,
+    spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '20% 40%',
+        tablet: '20% 40%',
+        mobile: '60% 50%',
+      },
+    },
+  },
+  {
+    src: '/images/africa/male_lion_1.jpg',
+    alt: 'Port Lockroy, Antarctica',
+    title: 'Port Lockroy',
+    location: 'Antarctica',
+    spanCol: 12,
+    spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '20% 40%',
+        tablet: '20% 40%',
+        mobile: '5% 50%',
+      },
+    },
+  },
+  {
+    src: '/images/africa/krueger-lil-buffalo.jpeg',
+    alt: 'Port Lockroy, Antarctica',
+    title: 'Port Lockroy',
+    location: 'Antarctica',
+    spanCol: 4,
+    spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '50% 50%',
+      },
+    },
+  },
+  {
+    src: '/images/africa/tk_kruger8.jpg',
+    alt: 'Port Lockroy, Antarctica',
+    title: 'Port Lockroy',
+    location: 'Antarctica',
+    spanCol: 8,
+    spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '50% 50%',
+      },
+    },
+  },
+  {
+    src: '/images/africa/female_lion_1.jpg',
+    alt: 'Port Lockroy, Antarctica',
+    title: 'Port Lockroy',
+    location: 'Antarctica',
+    spanCol: 4,
+    spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '50% 50%',
+      },
+    },
+  },
+  {
+    src: '/images/africa/botlierskop-bird-1.jpg',
+    alt: 'Port Lockroy, Antarctica',
+    title: 'Port Lockroy',
+    location: 'Antarctica',
+    spanCol: 4,
+    spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '50% 50%',
+      },
+    },
+  },
+  {
+    src: '/images/africa/male_lion_3.jpg',
+    alt: 'Port Lockroy, Antarctica',
+    title: 'Port Lockroy',
+    location: 'Antarctica',
+    spanCol: 4,
+    spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '50% 50%',
+      },
+    },
+  },
+  {
+    src: '/images/africa/botlierskop_rhino_2.jpg',
+    alt: 'Port Lockroy, Antarctica',
+    title: 'Port Lockroy',
+    location: 'Antarctica',
+    spanCol: 12,
+    spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 90%',
+        tablet: '50% 90%',
+        mobile: '5% 90%',
+      },
+    },
+  },
 ];

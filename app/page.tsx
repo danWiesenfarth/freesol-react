@@ -45,7 +45,11 @@ export default function Home() {
               dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
               sanctus est Lorem ipsum dolor sit amet.
             </p>
-            <Link href='/'>
+            <Link
+              className=''
+              href='https://r3-f-artgallery-nu.vercel.app/'
+              target='_blank'
+            >
               <button className='  px-6 py-3 bg-zinc-900 text-zinc-50 mt-4 rounded font-sans-alt font-bold cursor-pointer flex items-center gap-2 hover:scale-105 transition-all 300ms hover:bg-amber-500 hover:text-zinc-900 hover:border-r-4 hover:border-b-4'>
                 <span> Take Me to the Art Gallery</span>
                 <ChevronRight />

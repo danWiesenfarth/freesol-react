@@ -25,7 +25,7 @@ export default function ProjectMenu({
   const lightMenu = scrolled || isLightHeader;
 
   return (
-    <div className='absolute top-full left-0 w-[450px] pt-[30px]'>
+    <div className='absolute top-full left-0 w-112.5 pt-7.5'>
       <div
         className={`
           flex flex-col gap-2 p-4 rounded-lg
@@ -63,7 +63,7 @@ export default function ProjectMenu({
               )}
             </div>
 
-            <div className='relative w-64 aspect-[3/2] shrink-0 overflow-hidden rounded-md'>
+            <div className='relative w-64 aspect-3/2 shrink-0 overflow-hidden rounded-md'>
               <MediaImage
                 src={project.thumbnail}
                 alt={project.alt}
