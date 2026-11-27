@@ -1,4 +1,8 @@
-export default function FooterLogo({ classname }) {
+interface Logo {
+  className: string;
+}
+
+export default function FooterLogo({ className }: Logo) {
   return (
     <svg
       width='100%'
@@ -6,6 +10,7 @@ export default function FooterLogo({ classname }) {
       viewBox='0 0 1016 179'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
+      className={className}
     >
       <g filter='url(#filter0_i_24_59)'>
         <path

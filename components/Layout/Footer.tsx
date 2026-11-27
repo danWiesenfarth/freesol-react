@@ -68,7 +68,7 @@ export default function Footer() {
       </nav>
       <div className='hidden md:block h-0.5 bg-zinc-200 w-full my-12'></div>
       <div className='hidden mt-auto md:flex justify-end w-full text-zinc-200'>
-        <FooterLogo classname='' />
+        <FooterLogo className='' />
       </div>
     </footer>
   );

@@ -268,4 +268,34 @@ export const frozenLandscapes: PhotoProps[] = [
       },
     },
   },
+  {
+    src: '/images/arctic/arctic1.jpg',
+    alt: 'Port Lockroy, Antarctica',
+    title: 'Port Lockroy',
+    location: 'Antarctica',
+    spanCol: 8,
+    spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '20% 50%',
+      },
+    },
+  },
+  {
+    src: '/images/arctic/airgreenland5.jpg',
+    alt: 'Port Lockroy, Antarctica',
+    title: 'Port Lockroy',
+    location: 'Antarctica',
+    spanCol: 4,
+    spanRow: 4,
+    imageSettings: {
+      focalPoint: {
+        desktop: '50% 40%',
+        tablet: '50% 40%',
+        mobile: '20% 50%',
+      },
+    },
+  },
 ];

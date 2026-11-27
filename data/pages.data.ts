@@ -136,7 +136,7 @@ export const heroContent = {
     description: 'Impressions from the most remote places on earth.',
     media: {
       type: 'image',
-      src: '/images/antarctica/dw_snow_1.jpg',
+      src: '/images/arctic/ice_drone2.jpg',
       alt: 'Snow-covered Antarctic landscape',
     },
   },

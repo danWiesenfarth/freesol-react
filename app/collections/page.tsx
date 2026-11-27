@@ -27,7 +27,7 @@ export default function CollectionsPage() {
           </div>
         </div>
 
-        <ol className='flex flex-col my-4 gap-2 md:grid md:grid-cols-2'>
+        <ol className='flex flex-col my-4 gap-2 md:grid md:grid-cols-1'>
           {collectionsData.map((collection) => (
             <li key={collection.src}>
               <Link
