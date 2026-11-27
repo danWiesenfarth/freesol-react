@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { neueRegrade, satoshi } from './fonts';
+import { neueRegrade, satoshi, departureMono } from './fonts';
 
 import Header from '../components/Layout/Header/Header';
 import Footer from '@/components/Layout/Footer';
@@ -16,7 +16,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang='en'
-      className={`${neueRegrade.variable} ${satoshi.variable} h-full antialiased`}
+      className={`${neueRegrade.variable} ${satoshi.variable} ${departureMono.variable} h-full antialiased`}
     >
       <body className='min-h-full flex flex-col'>
         <CookieConsentProvider>

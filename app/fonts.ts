@@ -13,3 +13,10 @@ export const satoshi = localFont({
   weight: '100 900',
   display: 'swap',
 });
+
+export const departureMono = localFont({
+  src: '../assets/fonts/DepartureMono-Regular.woff2',
+  variable: '--font-departure-mono',
+  weight: '400',
+  display: 'swap',
+});
